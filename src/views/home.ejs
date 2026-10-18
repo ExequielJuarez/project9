@@ -1,0 +1,30 @@
+<%- include("partials/header") %>
+<main class="page">
+  <h1 class="page__title">Vehículos</h1>
+  <p class="breadcrumb">Inicio / Flota</p>
+
+  <div class="filters">
+    <select><option>Tipo</option><option>Camioneta</option><option>Utilitario</option><option>Furgón</option></select>
+    <select><option>Marca</option><% [...new Set(catalogo.map(v => v.marca))].forEach(m => { %><option><%= m %></option><% }) %></select>
+    <select><option>Estado</option><option>Al día</option><option>Por vencer</option></select>
+    <span class="filters__count"><%= catalogo.length %> resultados</span>
+  </div>
+
+  <section class="grid">
+    <% catalogo.forEach(v => { %>
+      <article class="card">
+        <div class="card__img">
+          <% if (v.estado !== "Al día") { %><span class="badge"><%= v.estado %></span><% } %>
+          <svg viewBox="0 0 64 32" width="120" fill="none" stroke="#9a9a9a" stroke-width="1.5"><path d="M4 22v-6l8-2 8-8h22l8 8 10 2v6"/><circle cx="18" cy="24" r="4"/><circle cx="46" cy="24" r="4"/></svg>
+        </div>
+        <div class="card__body">
+          <span class="card__brand"><%= v.marca %></span>
+          <h2 class="card__name"><%= v.nombre %></h2>
+          <span class="card__meta"><%= v.detalle %></span>
+          <button class="btn" type="button">Ver ficha técnica</button>
+        </div>
+      </article>
+    <% }) %>
+  </section>
+</main>
+<%- include("partials/footer") %>
