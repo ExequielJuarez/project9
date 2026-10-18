@@ -1,0 +1,344 @@
+/* ==========================================================
+   TEMA — estética minimalista (se carga después de todo)
+   Barra negra y botón negro tipo tienda deportiva, mucho aire,
+   grises suaves, buscador en píldora y tarjetas redondeadas.
+   ========================================================== */
+
+:root {
+  --fuente-titulos: "Inter", system-ui, -apple-system, sans-serif;
+  --fuente-texto: "Inter", system-ui, -apple-system, sans-serif;
+  --hueso: #ffffff;
+  --gris-100: #f4f4f4;
+  --gris-200: #e8e8e8;
+  --gris-600: #777777;
+  --radio: 10px;
+  --rojo: #e11d27;
+}
+
+body {
+  letter-spacing: -0.005em;
+}
+
+/* Los acentos en cursiva del tema anterior ya no van */
+em,
+.hero__titulo--busqueda,
+.nav__item--activo a {
+  font-style: normal !important;
+}
+
+/* ---------- Barra de anuncios ---------- */
+.anuncios {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.anuncios__pista {
+  padding: 11px 0;
+}
+
+/* ---------- Botones ---------- */
+.btn {
+  height: 44px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* ---------- Header ---------- */
+.header {
+  border-bottom: 1px solid var(--gris-200);
+}
+
+.logo__marca {
+  min-width: 0;
+  height: auto;
+  padding: 0;
+  border: 0;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  text-transform: lowercase;
+}
+
+.buscador {
+  max-width: 320px;
+  flex-direction: row-reverse;
+  border: 1px solid var(--gris-200);
+  border-radius: 999px;
+  background: var(--gris-100);
+  padding: 0 6px 0 14px;
+  transition: border-color var(--transicion), background var(--transicion);
+}
+
+.buscador:focus-within {
+  background: var(--blanco);
+  border-color: var(--negro);
+}
+
+.buscador input {
+  height: 40px;
+  padding-left: 8px;
+}
+
+.buscador button {
+  color: var(--gris-600);
+}
+
+.sugerencias {
+  border-radius: var(--radio);
+  overflow: hidden;
+}
+
+.carrito-btn__contador {
+  background: var(--negro);
+}
+
+/* ---------- Navegación en PC: logo · menú · buscador · iconos, en una fila ---------- */
+@media (min-width: 1100px) {
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    height: var(--alto-header);
+    padding: 0 var(--gutter);
+  }
+
+  .header__barra {
+    display: contents;
+  }
+
+  .logo {
+    order: 1;
+  }
+
+  .nav {
+    order: 2;
+    flex: 1;
+    border-top: 0;
+  }
+
+  .nav__lista.contenedor {
+    justify-content: flex-start;
+    gap: 28px;
+    padding: 0;
+    margin: 0;
+    max-width: none;
+  }
+
+  .header .buscador {
+    order: 3;
+    width: 300px;
+  }
+
+  .header__acciones {
+    order: 4;
+  }
+
+  .nav__lista a {
+    padding: 8px 0;
+    font-size: 14px;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .nav__lista a::after {
+    bottom: 2px;
+    height: 2px;
+  }
+}
+
+/* ---------- Menú móvil ---------- */
+.nav__lista a {
+  font-family: var(--fuente-texto);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* ---------- Título de página ---------- */
+.hero__titulo {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.hero__texto {
+  font-size: 14px;
+}
+
+.hero__cantidad {
+  font-size: 13px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.migas {
+  font-size: 14px;
+}
+
+/* ---------- Barra de filtros ---------- */
+.herramientas {
+  background: var(--blanco);
+  border-top: 0;
+}
+
+.btn-filtros,
+.orden select {
+  height: 40px;
+  border: 1px solid var(--gris-200);
+  border-radius: 6px;
+  background-color: var(--blanco);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.btn-filtros:hover,
+.orden select:hover {
+  border-color: var(--negro);
+}
+
+.chip {
+  height: 32px;
+  border-radius: 999px;
+  padding: 0 12px;
+}
+
+.filtros__cabecera h2 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.check__caja {
+  border-radius: 4px;
+}
+
+/* ---------- Tarjetas de producto ---------- */
+.tarjeta {
+  background: var(--blanco);
+  border-radius: var(--radio);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+  transition: box-shadow var(--transicion), transform var(--transicion);
+}
+
+.tarjeta:hover {
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.tarjeta__imagen {
+  aspect-ratio: 1 / 1;
+  background: var(--gris-100);
+}
+
+.tarjeta__foto {
+  object-fit: contain;
+  padding: 6%;
+  mix-blend-mode: multiply;
+}
+
+.tarjeta__etiqueta {
+  top: 12px;
+  left: auto;
+  right: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: var(--rojo);
+  color: var(--blanco);
+  font-size: 11px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.tarjeta__etiqueta--agotado {
+  background: var(--negro);
+}
+
+.tarjeta__fav {
+  top: 10px;
+  right: auto;
+  left: 10px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.tarjeta__info {
+  padding: 14px 16px 4px;
+}
+
+.tarjeta__categoria {
+  font-size: 12px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.tarjeta__nombre {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.tarjeta__precio {
+  margin-top: 10px;
+  font-family: var(--fuente-texto);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.tarjeta__transferencia {
+  font-size: 12px;
+  color: var(--gris-600);
+}
+
+.tarjeta__transferencia span {
+  color: var(--gris-600);
+}
+
+/* El botón negro siempre a la vista, de ancho completo, al pie de la tarjeta */
+.tarjeta__agregar,
+.tarjeta:hover .tarjeta__agregar {
+  position: static;
+  display: block;
+  width: calc(100% - 32px);
+  height: 42px;
+  margin: 12px 16px 16px;
+  border-radius: 6px;
+  opacity: 1;
+  transform: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.tarjeta > .tarjeta__agregar {
+  margin-top: auto;
+}
+
+.tarjeta__info {
+  flex: 1;
+}
+
+/* ---------- Secciones de la home ---------- */
+.seccion-etiqueta {
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.seccion-etiqueta::before {
+  display: none;
+}
+
+.seccion-titulo {
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+.footer,
+.footer a {
+  letter-spacing: 0;
+}
