@@ -1,55 +1,68 @@
 /* ==========================================================
-   TEMA — estética minimalista (se carga después de todo)
-   Barra negra y botón negro tipo tienda deportiva, mucho aire,
-   grises suaves, buscador en píldora y tarjetas redondeadas.
+   TEMA — Huella Negra (se carga después de todo)
+   Fondo hueso cálido, serif en mayúsculas, menú chico con letras
+   espaciadas, logo centrado, tarjetas planas y portada a pantalla completa.
    ========================================================== */
 
 :root {
-  --fuente-titulos: "Inter", system-ui, -apple-system, sans-serif;
-  --fuente-texto: "Inter", system-ui, -apple-system, sans-serif;
-  --hueso: #ffffff;
-  --gris-100: #f4f4f4;
-  --gris-200: #e8e8e8;
-  --gris-600: #777777;
-  --radio: 10px;
-  --rojo: #e11d27;
+  --tinta: #0f141a;
+  --hueso: #f6f4ef;
+  --piedra: #e3e1dc;
+  --gris-100: #e3e1dc;
+  --gris-200: #dedbd4;
+  --gris-600: #6a6a67;
+  --negro: #0f141a;
+  --grafito: #1b222a;
+  --dorado: #b79b6a;
+  --contenedor: 1180px;
 }
 
 body {
-  letter-spacing: -0.005em;
+  background: var(--hueso);
+  color: var(--tinta);
 }
 
-/* Los acentos en cursiva del tema anterior ya no van */
-em,
-.hero__titulo--busqueda,
-.nav__item--activo a {
-  font-style: normal !important;
-}
-
-/* ---------- Barra de anuncios ---------- */
+/* ---------- Barra de anuncios: fija, centrada ---------- */
 .anuncios {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  background: var(--tinta);
+  text-align: center;
 }
 
-.anuncios__pista {
-  padding: 11px 0;
+.anuncios__texto {
+  padding: 8px var(--gutter);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.anuncios__texto i {
+  margin: 0 8px;
+  font-style: normal;
+  opacity: 0.6;
 }
 
 /* ---------- Botones ---------- */
 .btn {
-  height: 44px;
-  border-radius: 6px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0;
-  text-transform: none;
+  height: 40px;
+  padding: 0 28px;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+}
+
+.btn--solido {
+  background: var(--tinta);
+  border-color: var(--tinta);
+}
+
+.btn--solido:hover {
+  background: var(--grafito);
 }
 
 /* ---------- Header ---------- */
 .header {
-  border-bottom: 1px solid var(--gris-200);
+  background: var(--hueso);
+  border-bottom: 0;
 }
 
 .logo__marca {
@@ -57,288 +70,418 @@ em,
   height: auto;
   padding: 0;
   border: 0;
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.cuenta__texto {
+  display: none;
+}
+
+/* Menú móvil */
+.nav {
+  background: var(--hueso);
+}
+
+.nav__lista a {
   font-size: 22px;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  text-transform: lowercase;
 }
 
+/* Lupa: abre el buscador desplegable en todos los tamaños */
 .buscador {
-  max-width: 320px;
-  flex-direction: row-reverse;
-  border: 1px solid var(--gris-200);
-  border-radius: 999px;
-  background: var(--gris-100);
-  padding: 0 6px 0 14px;
-  transition: border-color var(--transicion), background var(--transicion);
+  border-bottom-color: var(--tinta);
 }
 
-.buscador:focus-within {
-  background: var(--blanco);
-  border-color: var(--negro);
+@media (min-width: 768px) {
+  .header__barra {
+    grid-template-columns: 1fr auto 1fr;
+  }
+
+  /* El buscador completo se oculta en el header: queda la lupa */
+  .header__barra > .buscador {
+    display: none;
+  }
+
+  .header__buscar-movil {
+    display: inline-flex;
+  }
+
+  .buscador-movil {
+    display: block;
+  }
+
+  .logo__marca {
+    min-width: 0;
+    height: auto;
+    font-size: 30px;
+  }
+
+  .cuenta__btn,
+  .header__acciones > a.icono-btn[href^="/login"] {
+    width: auto;
+    gap: 8px;
+    padding: 0 8px;
+  }
+
+  .cuenta__texto {
+    display: inline;
+    font-size: 12px;
+    font-weight: 500;
+  }
 }
 
-.buscador input {
-  height: 40px;
-  padding-left: 8px;
-}
-
-.buscador button {
-  color: var(--gris-600);
-}
-
-.sugerencias {
-  border-radius: var(--radio);
-  overflow: hidden;
-}
-
-.carrito-btn__contador {
-  background: var(--negro);
-}
-
-/* ---------- Navegación en PC: logo · menú · buscador · iconos, en una fila ---------- */
+/* PC: menú a la izquierda, logo al centro, acciones a la derecha, en una sola fila */
 @media (min-width: 1100px) {
   .header {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-areas:
+      "menu logo acciones"
+      "buscador buscador buscador";
     align-items: center;
-    gap: 40px;
-    height: var(--alto-header);
-    padding: 0 var(--gutter);
+    padding: 0 max(var(--gutter), calc((100vw - 1360px) / 2 + var(--gutter)));
   }
 
   .header__barra {
     display: contents;
   }
 
-  .logo {
-    order: 1;
+  .header .logo {
+    grid-area: logo;
+  }
+
+  .header__acciones {
+    grid-area: acciones;
   }
 
   .nav {
-    order: 2;
-    flex: 1;
+    grid-area: menu;
     border-top: 0;
+    background: transparent;
+  }
+
+  .header .buscador-movil {
+    grid-area: buscador;
+    width: 100%;
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .header {
+    height: auto;
+  }
+
+  .header > .logo,
+  .header > .nav,
+  .header > .header__acciones {
+    height: var(--alto-header);
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
   }
 
   .nav__lista.contenedor {
+    width: auto;
     justify-content: flex-start;
     gap: 28px;
     padding: 0;
     margin: 0;
-    max-width: none;
-  }
-
-  .header .buscador {
-    order: 3;
-    width: 300px;
-  }
-
-  .header__acciones {
-    order: 4;
   }
 
   .nav__lista a {
     padding: 8px 0;
-    font-size: 14px;
-    letter-spacing: 0;
-    text-transform: none;
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
   }
 
   .nav__lista a::after {
     bottom: 2px;
-    height: 2px;
   }
 }
 
-/* ---------- Menú móvil ---------- */
-.nav__lista a {
-  font-family: var(--fuente-texto);
-  font-size: 18px;
-  font-weight: 600;
-}
-
-/* ---------- Título de página ---------- */
-.hero__titulo {
-  font-size: clamp(32px, 5vw, 48px);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.035em;
-}
-
-.hero__texto {
-  font-size: 14px;
-}
-
-.hero__cantidad {
-  font-size: 13px;
-  letter-spacing: 0;
-  text-transform: none;
-}
-
-.migas {
-  font-size: 14px;
-}
-
-/* ---------- Barra de filtros ---------- */
-.herramientas {
-  background: var(--blanco);
-  border-top: 0;
-}
-
-.btn-filtros,
-.orden select {
-  height: 40px;
-  border: 1px solid var(--gris-200);
-  border-radius: 6px;
-  background-color: var(--blanco);
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0;
-  text-transform: none;
-}
-
-.btn-filtros:hover,
-.orden select:hover {
-  border-color: var(--negro);
-}
-
-.chip {
-  height: 32px;
-  border-radius: 999px;
-  padding: 0 12px;
-}
-
-.filtros__cabecera h2 {
-  font-size: 22px;
-  font-weight: 700;
-}
-
-.check__caja {
-  border-radius: 4px;
-}
-
-/* ---------- Tarjetas de producto ---------- */
-.tarjeta {
-  background: var(--blanco);
-  border-radius: var(--radio);
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.07);
+/* ---------- Portada a pantalla completa ---------- */
+.portada-full {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 460px;
+  background: var(--piedra);
   overflow: hidden;
-  transition: box-shadow var(--transicion), transform var(--transicion);
 }
 
-.tarjeta:hover {
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
-  transform: translateY(-2px);
+.portada-full__foto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 70% center;
 }
 
+.portada-full__velo {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(246, 244, 239, 0.92) 0%, rgba(246, 244, 239, 0.55) 55%, rgba(246, 244, 239, 0) 75%);
+}
+
+.portada-full__texto {
+  position: relative;
+  width: 100%;
+  max-width: var(--contenedor);
+  margin: 0 auto;
+  padding: 56px var(--gutter);
+}
+
+.portada-full__etiqueta {
+  margin-bottom: 14px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gris-600);
+}
+
+.portada-full__titulo {
+  font-family: var(--fuente-titulos);
+  font-size: clamp(38px, 7vw, 68px);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.portada-full__titulo span {
+  display: block;
+}
+
+.portada-full__bajada {
+  max-width: 340px;
+  margin-top: 18px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #3d4147;
+}
+
+.portada-full__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 28px;
+  margin-top: 28px;
+}
+
+.portada-full__secundario {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 3px;
+}
+
+@media (min-width: 900px) {
+  .portada-full {
+    min-height: 400px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .portada-full__texto {
+    padding-left: calc(var(--gutter) + 40px);
+  }
+}
+
+/* ---------- Elegidos de la semana ---------- */
+.elegidos {
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+.elegidos__cabecera {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.elegidos__titulo {
+  font-family: var(--fuente-titulos);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.elegidos__ver {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.elegidos__grilla {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+@media (min-width: 900px) {
+  .elegidos__grilla {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+  }
+}
+
+/* ---------- Banner ---------- */
+.banner {
+  padding-top: 20px;
+  padding-bottom: 72px;
+}
+
+.banner__caja {
+  display: grid;
+  background: #e9e5dd;
+}
+
+.banner__foto {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--piedra);
+}
+
+.banner__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.banner__caja:hover .banner__foto img {
+  transform: scale(1.03);
+}
+
+.banner__texto {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+  padding: 32px 28px;
+}
+
+.banner__etiqueta {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gris-600);
+}
+
+.banner__titulo {
+  margin-bottom: 8px;
+  font-family: var(--fuente-titulos);
+  font-size: clamp(26px, 3.2vw, 34px);
+  font-weight: 600;
+  line-height: 1.08;
+  text-transform: uppercase;
+}
+
+.banner__titulo span {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .banner__caja {
+    grid-template-columns: 1.1fr 1fr;
+  }
+
+  .banner__foto {
+    aspect-ratio: auto;
+    min-height: 220px;
+  }
+
+  .banner__texto {
+    padding: 32px 44px;
+  }
+}
+
+/* ---------- Tarjetas planas ---------- */
 .tarjeta__imagen {
-  aspect-ratio: 1 / 1;
-  background: var(--gris-100);
+  aspect-ratio: 1 / 0.78;
+  background: var(--piedra);
 }
 
 .tarjeta__foto {
   object-fit: contain;
-  padding: 6%;
+  padding: 5%;
   mix-blend-mode: multiply;
 }
 
 .tarjeta__etiqueta {
-  top: 12px;
-  left: auto;
-  right: 12px;
-  padding: 4px 8px;
-  border-radius: 4px;
-  background: var(--rojo);
+  background: var(--tinta);
   color: var(--blanco);
-  font-size: 11px;
-  letter-spacing: 0;
-  text-transform: none;
-}
-
-.tarjeta__etiqueta--agotado {
-  background: var(--negro);
-}
-
-.tarjeta__fav {
-  top: 10px;
-  right: auto;
-  left: 10px;
-  background: rgba(255, 255, 255, 0.9);
 }
 
 .tarjeta__info {
-  padding: 14px 16px 4px;
+  padding-top: 10px;
 }
 
 .tarjeta__categoria {
-  font-size: 12px;
-  letter-spacing: 0;
-  text-transform: none;
-}
-
-.tarjeta__nombre {
-  font-size: 15px;
-  font-weight: 600;
-}
-
-.tarjeta__precio {
-  margin-top: 10px;
-  font-family: var(--fuente-texto);
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
-.tarjeta__transferencia {
-  font-size: 12px;
-  color: var(--gris-600);
-}
-
-.tarjeta__transferencia span {
-  color: var(--gris-600);
-}
-
-/* El botón negro siempre a la vista, de ancho completo, al pie de la tarjeta */
-.tarjeta__agregar,
-.tarjeta:hover .tarjeta__agregar {
-  position: static;
-  display: block;
-  width: calc(100% - 32px);
-  height: 42px;
-  margin: 12px 16px 16px;
-  border-radius: 6px;
-  opacity: 1;
-  transform: none;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0;
-  text-transform: none;
-}
-
-.tarjeta > .tarjeta__agregar {
-  margin-top: auto;
-}
-
-.tarjeta__info {
-  flex: 1;
-}
-
-/* ---------- Secciones de la home ---------- */
-.seccion-etiqueta {
-  letter-spacing: 0.08em;
-  font-weight: 600;
-}
-
-.seccion-etiqueta::before {
   display: none;
 }
 
-.seccion-titulo {
-  font-weight: 800;
-  letter-spacing: -0.035em;
+.tarjeta__nombre {
+  margin-top: 0;
+  font-size: 13px;
+  font-weight: 500;
 }
 
-.footer,
-.footer a {
-  letter-spacing: 0;
+.tarjeta__precio {
+  margin-top: 4px;
+  font-family: var(--fuente-texto);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.tarjeta__transferencia {
+  display: none;
+}
+
+.tarjeta__agregar {
+  background: var(--tinta);
+}
+
+/* ---------- Títulos de página (catálogo, cuenta, etc.) ---------- */
+.hero__titulo {
+  font-size: clamp(34px, 6vw, 56px);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.hero__titulo--busqueda {
+  text-transform: none;
+}
+
+em {
+  font-style: normal;
+}
+
+.herramientas {
+  background: var(--hueso);
+  border-top-color: var(--tinta);
+}
+
+.btn-filtros {
+  border-color: var(--tinta);
+}
+
+.footer {
+  background: var(--hueso);
 }

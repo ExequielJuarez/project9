@@ -17,11 +17,12 @@ const soloLogueados = require("../middlewares/soloLogueados");
 const perfilValidator = require("../validations/perfilValidator");
 const claveValidator = require("../validations/claveValidator");
 
-// ── INICIO (presentación de la marca, sin precios) ─────────
+// ── INICIO (portada, productos elegidos y banner) ──────────
 // Los textos y fotos se editan desde Admin → Inicio
 router.get("/", async (req, res) => {
-  const contenido = await inicioService.obtener();
-  res.render("inicio", { titulo: "Mates artesanales", estilo: "inicio", navActivo: "inicio", contenido });
+  const [contenido, productos] = await Promise.all([inicioService.obtener(), productoService.listar()]);
+  const elegidos = productos.filter((p) => p.stock > 0).slice(0, 4);
+  res.render("inicio", { titulo: "Inicio", estilo: "inicio", navActivo: "inicio", contenido, elegidos });
 });
 
 // ── CATÁLOGO DE PRODUCTOS (y resultados de búsqueda con ?q=) ─

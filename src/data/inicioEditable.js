@@ -29,29 +29,29 @@ const SECCIONES = {
     descripcion: "Lo primero que se ve al entrar: título, botones y la foto grande.",
     siempreVisible: true,
     campos: {
-      etiqueta: texto("Texto chico de arriba", "(NOMBRE DE LA MARCA) · Mates artesanales", 70),
+      etiqueta: texto("Texto chico de arriba", "", 70),
       titulo: {
         tipo: "lineas",
         etiqueta: "Título grande",
-        defecto: "El ritual\nde *compartir*,\nhecho a mano.",
+        defecto: "Vestite a tu\nmanera.",
         max: 90,
         maxLineas: 4,
         ayuda: "Cada renglón aparece con una animación. *Entre asteriscos* va en cursiva.",
       },
       bajada: parrafo(
         "Texto debajo del título",
-        "Mates de calabaza, madera y cuero hechos uno por uno en nuestro taller. Piezas con historia, pensadas para pasar de mano en mano.",
+        "Básicos con carácter. Elegancia relajada para todos los días.",
         260
       ),
-      botonTexto: texto("Botón principal", "Descubrir la colección", 30, { ancho: "medio" }),
+      botonTexto: texto("Botón principal", "Ver colección", 30, { ancho: "medio" }),
       botonLink: link("Link del botón principal", "/catalogo"),
-      secundarioTexto: texto("Link secundario", "Nuestra historia", 30, { ancho: "medio" }),
+      secundarioTexto: texto("Link secundario", "", 30, { ancho: "medio" }),
       secundarioLink: link("A dónde lleva", "#historia"),
       imagen: imagen("Foto principal (dentro del arco)", IMG("mate-portada.svg"), {
         ayuda: "Queda mejor una foto vertical, con el mate centrado.",
         fondo: "oscuro",
       }),
-      sello: texto("Texto del sello que gira", "HECHO A MANO ✦ DESDE (AÑO) ✦ TALLER (CIUDAD) ✦", 50),
+      sello: texto("Texto del sello que gira", "", 50),
       miniImagen: imagen("Foto de la tarjetita", IMG("mate-calabaza.svg"), { ancho: "medio" }),
       miniTexto: {
         tipo: "lineas",
@@ -61,6 +61,24 @@ const SECCIONES = {
         maxLineas: 2,
         ancho: "medio",
       },
+    },
+  },
+
+  banner: {
+    titulo: "Banner de colección",
+    descripcion: "El bloque con foto a la izquierda y texto a la derecha, debajo de los productos.",
+    campos: {
+      etiqueta: etiquetaSeccion("Nueva colección"),
+      titulo: {
+        tipo: "lineas",
+        etiqueta: "Título",
+        defecto: "Menos ruido.\nMás estilo.",
+        max: 60,
+        maxLineas: 3,
+      },
+      botonTexto: texto("Texto del botón", "Descubrir Huella Negra", 30, { ancho: "medio" }),
+      botonLink: link("A dónde lleva", "/catalogo"),
+      imagen: imagen("Foto", IMG("mate-portada.svg"), { ayuda: "Mejor una foto horizontal." }),
     },
   },
 
