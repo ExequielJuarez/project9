@@ -45,185 +45,103 @@ INSERT INTO usuarios (id, nombre, apellido, email, telefono, password, google_id
 
 -- ── Categorías y colores ────────────────────────────────
 INSERT INTO categorias (id, nombre, orden) VALUES
-  (1, 'Línea Clásica', 1),
-  (2, 'Línea Madera', 2),
-  (3, 'Línea Acero', 3),
-  (4, 'Línea Premium', 4),
-  (5, 'Línea Cerámica', 5),
-  (6, 'Personalizados', 6),
-  (7, 'Combos', 7);
+  (1, 'Remeras', 1),
+  (2, 'Polos', 2),
+  (3, 'Camperas', 3),
+  (4, 'Buzos', 4);
 
 INSERT INTO colores (id, valor, nombre, hex, orden) VALUES
   (1, 'negro', 'Negro', '#111111', 1),
   (2, 'blanco', 'Blanco', '#ffffff', 2),
-  (3, 'gris', 'Gris', '#8a8a8a', 3),
-  (4, 'madera', 'Madera', '#5c5c5c', 4),
-  (5, 'crudo', 'Crudo', '#d6d6d6', 5);
+  (3, 'verde-agua', 'Verde agua', '#b8c9b9', 3),
+  (4, 'marron', 'Marrón', '#5a392b', 4),
+  (5, 'verde', 'Verde', '#1d5a3c', 5),
+  (6, 'crudo', 'Crudo', '#e4dfd3', 6);
 
 -- ── Productos ───────────────────────────────────────────
 INSERT INTO productos (id, nombre, categoria_id, color_id, precio, costo, stock, etiqueta, resumen, descripcion, destacados) VALUES
-  (1, 'Producto Clásico Edición Cuero', 1, 1, 25000, 12500, 34, 'Nuevo', 'Pieza hecha a mano, con materiales seleccionados y terminaciones cuidadas al detalle. Ninguna es igual a otra.', 'Acá va la descripción principal del producto: qué es, para quién está pensado y qué lo hace especial. Dos o tres líneas alcanzan para contar la historia.
+  (1, 'Polo Essential', 2, 1, 34900, 17000, 24, 'Nuevo', 'Polo manga larga con cuello clásico y bordado en el pecho. Un básico con carácter.', 'Un polo pensado para usar todos los días: caída relajada, cuello firme y un bordado discreto en el pecho.
 
-Cada pieza pasa por un proceso artesanal de selección, curado y terminación. Por eso pueden existir pequeñas diferencias de veta, tono o forma entre unidades.', 'Material principal de primera calidad
-Terminación interior protegida
-Producto 100% artesanal
-Incluye accesorio de regalo'),
-  (2, 'Producto Madera Boca Ancha con Detalle Metálico', 2, 4, 29500, 14000, 18, NULL, 'Pieza hecha a mano, con materiales seleccionados y terminaciones cuidadas al detalle. Ninguna es igual a otra.', 'Acá va la descripción principal del producto: qué es, para quién está pensado y qué lo hace especial. Dos o tres líneas alcanzan para contar la historia.
+Combina con jean, cargo o sastrero. Se lava a máquina sin perder la forma.', 'Algodón peinado de primera calidad
+Bordado en el pecho
+Caída relajada
+Cambios fáciles'),
+  (2, 'Campera Gabardina Negra', 3, 1, 59900, 31000, 12, 'Exclusivo', 'Campera camisera de gabardina con botones metálicos y bolsillos de pecho.', 'Una campera liviana que funciona como abrigo y como camisa. Gabardina con cuerpo, botones metálicos y bolsillos frontales.
 
-Cada pieza pasa por un proceso artesanal de selección, curado y terminación. Por eso pueden existir pequeñas diferencias de veta, tono o forma entre unidades.', 'Material principal de primera calidad
-Terminación interior protegida
-Producto 100% artesanal
-Incluye accesorio de regalo'),
-  (3, 'Producto Personalizado con Caja de Regalo', 6, 1, 38500, 19000, 9, 'Más vendido', 'Pieza hecha a mano, con materiales seleccionados y terminaciones cuidadas al detalle. Ninguna es igual a otra.', 'Acá va la descripción principal del producto: qué es, para quién está pensado y qué lo hace especial. Dos o tres líneas alcanzan para contar la historia.
+Para usar abierta sobre una remera blanca o cerrada en días frescos.', 'Gabardina de algodón
+Botones metálicos
+Bolsillos de pecho
+Cambios fáciles'),
+  (3, 'Remera Boxy Verde Agua', 1, 3, 27900, 13500, 30, 'Nuevo', 'Remera boxy de algodón grueso con estampa en la espalda.', 'Corte boxy, hombro caído y algodón con cuerpo. La estampa en la espalda es lo que la hace distinta.
 
-Cada pieza pasa por un proceso artesanal de selección, curado y terminación. Por eso pueden existir pequeñas diferencias de veta, tono o forma entre unidades.', 'Material principal de primera calidad
-Terminación interior protegida
-Producto 100% artesanal
-Incluye accesorio de regalo'),
-  (4, 'Producto Personalizado Grabado a Láser', 6, 2, 38990, 20500, 22, NULL, 'Pieza hecha a mano, con materiales seleccionados y terminaciones cuidadas al detalle. Ninguna es igual a otra.', 'Acá va la descripción principal del producto: qué es, para quién está pensado y qué lo hace especial. Dos o tres líneas alcanzan para contar la historia.
+Queda bien suelta con un cargo o ajustada con un pantalón recto.', 'Algodón grueso 220 g
+Estampa en la espalda
+Corte boxy
+Cambios fáciles'),
+  (4, 'Remera Boxy Marrón', 1, 4, 24900, 12000, 28, 'Más vendido', 'Remera oversize color chocolate con bordado frontal.', 'Un marrón profundo que va con todo. Algodón suave, cuello reforzado y bordado al frente.
 
-Cada pieza pasa por un proceso artesanal de selección, curado y terminación. Por eso pueden existir pequeñas diferencias de veta, tono o forma entre unidades.', 'Material principal de primera calidad
-Terminación interior protegida
-Producto 100% artesanal
-Incluye accesorio de regalo'),
-  (5, 'Producto Artesanal Terminación Mate', 1, 5, 21000, 9800, 41, NULL, 'Pieza hecha a mano, con materiales seleccionados y terminaciones cuidadas al detalle. Ninguna es igual a otra.', 'Acá va la descripción principal del producto: qué es, para quién está pensado y qué lo hace especial. Dos o tres líneas alcanzan para contar la historia.
+La más pedida de la temporada.', 'Algodón suave
+Bordado frontal
+Cuello reforzado
+Cambios fáciles'),
+  (5, 'Remera Oversize Gráfica', 1, 1, 26900, 13000, 15, NULL, 'Remera negra oversize con gran estampa metalizada en la espalda.', 'Negra, oversize y con una estampa metalizada grande en la espalda. Al frente, solo un detalle chico.
 
-Cada pieza pasa por un proceso artesanal de selección, curado y terminación. Por eso pueden existir pequeñas diferencias de veta, tono o forma entre unidades.', 'Material principal de primera calidad
-Terminación interior protegida
-Producto 100% artesanal
-Incluye accesorio de regalo'),
-  (6, 'Producto Acero Inoxidable Térmico', 3, 3, 42000, 23500, 3, 'Nuevo', 'Pieza hecha a mano, con materiales seleccionados y terminaciones cuidadas al detalle. Ninguna es igual a otra.', 'Acá va la descripción principal del producto: qué es, para quién está pensado y qué lo hace especial. Dos o tres líneas alcanzan para contar la historia.
+Para quienes prefieren que el diseño se vea al darse vuelta.', 'Algodón grueso
+Estampa metalizada
+Corte oversize
+Cambios fáciles'),
+  (6, 'Buzo Canguro Verde', 4, 5, 44900, 22500, 3, 'Últimas unidades', 'Buzo canguro de friza con paneles en contraste y capucha.', 'Friza suave por dentro, paneles en contraste y capucha con cordón. Un buzo que se nota.
 
-Cada pieza pasa por un proceso artesanal de selección, curado y terminación. Por eso pueden existir pequeñas diferencias de veta, tono o forma entre unidades.', 'Material principal de primera calidad
-Terminación interior protegida
-Producto 100% artesanal
-Incluye accesorio de regalo'),
-  (7, 'Producto Imperial Base Reforzada', 4, 1, 55000, 30000, 6, 'Exclusivo', 'Pieza hecha a mano, con materiales seleccionados y terminaciones cuidadas al detalle. Ninguna es igual a otra.', 'Acá va la descripción principal del producto: qué es, para quién está pensado y qué lo hace especial. Dos o tres líneas alcanzan para contar la historia.
+Quedan pocas unidades.', 'Friza suave
+Paneles en contraste
+Capucha con cordón
+Cambios fáciles');
 
-Cada pieza pasa por un proceso artesanal de selección, curado y terminación. Por eso pueden existir pequeñas diferencias de veta, tono o forma entre unidades.', 'Material principal de primera calidad
-Terminación interior protegida
-Producto 100% artesanal
-Incluye accesorio de regalo'),
-  (8, 'Combo Regalo Completo con Accesorios', 7, 2, 64900, 36000, 12, NULL, 'Pieza hecha a mano, con materiales seleccionados y terminaciones cuidadas al detalle. Ninguna es igual a otra.', 'Acá va la descripción principal del producto: qué es, para quién está pensado y qué lo hace especial. Dos o tres líneas alcanzan para contar la historia.
-
-Cada pieza pasa por un proceso artesanal de selección, curado y terminación. Por eso pueden existir pequeñas diferencias de veta, tono o forma entre unidades.', 'Material principal de primera calidad
-Terminación interior protegida
-Producto 100% artesanal
-Incluye accesorio de regalo'),
-  (9, 'Producto Cerámica Esmaltada', 5, 2, 18500, 8200, 0, NULL, 'Pieza hecha a mano, con materiales seleccionados y terminaciones cuidadas al detalle. Ninguna es igual a otra.', 'Acá va la descripción principal del producto: qué es, para quién está pensado y qué lo hace especial. Dos o tres líneas alcanzan para contar la historia.
-
-Cada pieza pasa por un proceso artesanal de selección, curado y terminación. Por eso pueden existir pequeñas diferencias de veta, tono o forma entre unidades.', 'Material principal de primera calidad
-Terminación interior protegida
-Producto 100% artesanal
-Incluye accesorio de regalo'),
-  (10, 'Producto Madera Torneada a Mano', 2, 4, 27300, 13100, 27, NULL, 'Pieza hecha a mano, con materiales seleccionados y terminaciones cuidadas al detalle. Ninguna es igual a otra.', 'Acá va la descripción principal del producto: qué es, para quién está pensado y qué lo hace especial. Dos o tres líneas alcanzan para contar la historia.
-
-Cada pieza pasa por un proceso artesanal de selección, curado y terminación. Por eso pueden existir pequeñas diferencias de veta, tono o forma entre unidades.', 'Material principal de primera calidad
-Terminación interior protegida
-Producto 100% artesanal
-Incluye accesorio de regalo'),
-  (11, 'Producto Forrado en Cuero Crudo', 1, 5, 31200, 16500, 2, 'Últimas unidades', 'Pieza hecha a mano, con materiales seleccionados y terminaciones cuidadas al detalle. Ninguna es igual a otra.', 'Acá va la descripción principal del producto: qué es, para quién está pensado y qué lo hace especial. Dos o tres líneas alcanzan para contar la historia.
-
-Cada pieza pasa por un proceso artesanal de selección, curado y terminación. Por eso pueden existir pequeñas diferencias de veta, tono o forma entre unidades.', 'Material principal de primera calidad
-Terminación interior protegida
-Producto 100% artesanal
-Incluye accesorio de regalo'),
-  (12, 'Set Empresarial Personalizado x10', 6, 3, 289000, 165000, 5, NULL, 'Pieza hecha a mano, con materiales seleccionados y terminaciones cuidadas al detalle. Ninguna es igual a otra.', 'Acá va la descripción principal del producto: qué es, para quién está pensado y qué lo hace especial. Dos o tres líneas alcanzan para contar la historia.
-
-Cada pieza pasa por un proceso artesanal de selección, curado y terminación. Por eso pueden existir pequeñas diferencias de veta, tono o forma entre unidades.', 'Material principal de primera calidad
-Terminación interior protegida
-Producto 100% artesanal
-Incluye accesorio de regalo');
-
--- Los productos de prueba no traen fotos: se cargan desde el panel admin
--- (se guardan en producto_imagenes).
+-- ── Fotos de cada producto (la de menor orden es la principal) ──
+INSERT INTO producto_imagenes (producto_id, ruta, orden) VALUES
+  (1, '/img/productos/polo-negro.jpg', 0),
+  (2, '/img/productos/campera-negra.jpg', 0),
+  (2, '/img/productos/campera-negra-2.jpg', 1),
+  (3, '/img/productos/remera-verde-agua.jpg', 0),
+  (3, '/img/productos/remera-verde-agua-2.jpg', 1),
+  (4, '/img/productos/remera-marron.jpg', 0),
+  (4, '/img/productos/remera-marron-2.jpg', 1),
+  (5, '/img/productos/remera-negra.jpg', 0),
+  (5, '/img/productos/remera-negra-2.jpg', 1),
+  (6, '/img/productos/buzo-verde.jpg', 0);
 
 -- ── Ficha técnica de cada producto ──────────────────────
 INSERT INTO especificaciones (producto_id, clave, valor, orden) VALUES
-  (1, 'Material', 'Calabaza y cuero', 1),
-  (1, 'Diámetro', '9 cm', 2),
-  (1, 'Altura', '10 cm', 3),
-  (1, 'Capacidad', '240 ml', 4),
-  (1, 'Apto lavavajillas', 'No', 5),
-  (1, 'Incluye', 'Accesorio + caja', 6),
-  (1, 'Origen', 'Hecho en Argentina', 7),
-  (2, 'Material', 'Algarrobo', 1),
-  (2, 'Diámetro', '9 cm', 2),
-  (2, 'Altura', '10 cm', 3),
-  (2, 'Capacidad', '240 ml', 4),
-  (2, 'Apto lavavajillas', 'No', 5),
-  (2, 'Incluye', 'Accesorio + caja', 6),
-  (2, 'Origen', 'Hecho en Argentina', 7),
-  (3, 'Material', 'Madera grabada a láser', 1),
-  (3, 'Diámetro', '9 cm', 2),
-  (3, 'Altura', '10 cm', 3),
-  (3, 'Capacidad', '240 ml', 4),
-  (3, 'Apto lavavajillas', 'No', 5),
-  (3, 'Incluye', 'Accesorio + caja', 6),
-  (3, 'Origen', 'Hecho en Argentina', 7),
-  (4, 'Material', 'Madera grabada a láser', 1),
-  (4, 'Diámetro', '9 cm', 2),
-  (4, 'Altura', '10 cm', 3),
-  (4, 'Capacidad', '240 ml', 4),
-  (4, 'Apto lavavajillas', 'No', 5),
-  (4, 'Incluye', 'Accesorio + caja', 6),
-  (4, 'Origen', 'Hecho en Argentina', 7),
-  (5, 'Material', 'Calabaza y cuero', 1),
-  (5, 'Diámetro', '9 cm', 2),
-  (5, 'Altura', '10 cm', 3),
-  (5, 'Capacidad', '240 ml', 4),
-  (5, 'Apto lavavajillas', 'No', 5),
-  (5, 'Incluye', 'Accesorio + caja', 6),
-  (5, 'Origen', 'Hecho en Argentina', 7),
-  (6, 'Material', 'Acero inoxidable 304', 1),
-  (6, 'Diámetro', '9 cm', 2),
-  (6, 'Altura', '10 cm', 3),
-  (6, 'Capacidad', '240 ml', 4),
-  (6, 'Apto lavavajillas', 'No', 5),
-  (6, 'Incluye', 'Accesorio + caja', 6),
-  (6, 'Origen', 'Hecho en Argentina', 7),
-  (7, 'Material', 'Algarrobo y alpaca', 1),
-  (7, 'Diámetro', '9 cm', 2),
-  (7, 'Altura', '10 cm', 3),
-  (7, 'Capacidad', '240 ml', 4),
-  (7, 'Apto lavavajillas', 'No', 5),
-  (7, 'Incluye', 'Accesorio + caja', 6),
-  (7, 'Origen', 'Hecho en Argentina', 7),
-  (8, 'Material', 'Varios', 1),
-  (8, 'Diámetro', '9 cm', 2),
-  (8, 'Altura', '10 cm', 3),
-  (8, 'Capacidad', '240 ml', 4),
-  (8, 'Apto lavavajillas', 'No', 5),
-  (8, 'Incluye', 'Accesorio + caja', 6),
-  (8, 'Origen', 'Hecho en Argentina', 7),
-  (9, 'Material', 'Cerámica esmaltada', 1),
-  (9, 'Diámetro', '9 cm', 2),
-  (9, 'Altura', '10 cm', 3),
-  (9, 'Capacidad', '240 ml', 4),
-  (9, 'Apto lavavajillas', 'No', 5),
-  (9, 'Incluye', 'Accesorio + caja', 6),
-  (9, 'Origen', 'Hecho en Argentina', 7),
-  (10, 'Material', 'Algarrobo', 1),
-  (10, 'Diámetro', '9 cm', 2),
-  (10, 'Altura', '10 cm', 3),
-  (10, 'Capacidad', '240 ml', 4),
-  (10, 'Apto lavavajillas', 'No', 5),
-  (10, 'Incluye', 'Accesorio + caja', 6),
-  (10, 'Origen', 'Hecho en Argentina', 7),
-  (11, 'Material', 'Calabaza y cuero', 1),
-  (11, 'Diámetro', '9 cm', 2),
-  (11, 'Altura', '10 cm', 3),
-  (11, 'Capacidad', '240 ml', 4),
-  (11, 'Apto lavavajillas', 'No', 5),
-  (11, 'Incluye', 'Accesorio + caja', 6),
-  (11, 'Origen', 'Hecho en Argentina', 7),
-  (12, 'Material', 'Madera grabada a láser', 1),
-  (12, 'Diámetro', '9 cm', 2),
-  (12, 'Altura', '10 cm', 3),
-  (12, 'Capacidad', '240 ml', 4),
-  (12, 'Apto lavavajillas', 'No', 5),
-  (12, 'Incluye', 'Accesorio + caja', 6),
-  (12, 'Origen', 'Hecho en Argentina', 7);
+  (1, 'Material', 'Algodón peinado', 1),
+  (1, 'Calce', 'Regular', 2),
+  (1, 'Cuidado', 'Lavar del revés, agua fría', 3),
+  (1, 'Talles', 'S a XXL', 4),
+  (1, 'Origen', 'Hecho en Argentina', 5),
+  (2, 'Material', 'Gabardina de algodón', 1),
+  (2, 'Calce', 'Regular', 2),
+  (2, 'Cuidado', 'Lavar del revés, agua fría', 3),
+  (2, 'Talles', 'S a XXL', 4),
+  (2, 'Origen', 'Hecho en Argentina', 5),
+  (3, 'Material', 'Algodón 100%', 1),
+  (3, 'Calce', 'Boxy', 2),
+  (3, 'Cuidado', 'Lavar del revés, agua fría', 3),
+  (3, 'Talles', 'S a XL', 4),
+  (3, 'Origen', 'Hecho en Argentina', 5),
+  (4, 'Material', 'Algodón 100%', 1),
+  (4, 'Calce', 'Oversize', 2),
+  (4, 'Cuidado', 'Lavar del revés, agua fría', 3),
+  (4, 'Talles', 'S a XL', 4),
+  (4, 'Origen', 'Hecho en Argentina', 5),
+  (5, 'Material', 'Algodón 100%', 1),
+  (5, 'Calce', 'Oversize', 2),
+  (5, 'Cuidado', 'Lavar del revés, agua fría', 3),
+  (5, 'Talles', 'S a XL', 4),
+  (5, 'Origen', 'Hecho en Argentina', 5),
+  (6, 'Material', 'Friza de algodón', 1),
+  (6, 'Calce', 'Regular', 2),
+  (6, 'Cuidado', 'Lavar del revés, agua fría', 3),
+  (6, 'Talles', 'M a XXL', 4),
+  (6, 'Origen', 'Hecho en Argentina', 5);
 
 -- ── Cupones ─────────────────────────────────────────────
 INSERT INTO cupones (codigo, descripcion, porcentaje, activo, vence_en) VALUES
@@ -233,92 +151,92 @@ INSERT INTO cupones (codigo, descripcion, porcentaje, activo, vence_en) VALUES
 
 -- ── Favoritos del cliente demo ──────────────────────────
 INSERT INTO favoritos (usuario_id, producto_id) VALUES
-  (1, 3),
-  (1, 7),
-  (1, 10);
+  (1, 2),
+  (1, 4),
+  (1, 6);
 
 -- ── Pedidos de los últimos 30 días (80) ─────────────────
 INSERT INTO pedidos (id, usuario_id, cliente, email, telefono, entrega, calle, altura, piso, codigo_postal, ciudad, provincia, medio_pago, estado, subtotal, descuento, envio, total, costo, ganancia, creado_en) VALUES
-  (1001, 1, 'Cliente Demo', 'demo@tienda.com', '11 47926919', 'domicilio', 'Av. Siempre Viva', '2837', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'tarjeta', 'entregado', 25000, 0, 6500, 31500, 12500, 12500, TIMESTAMP(CURDATE() - INTERVAL 29 DAY, '18:41:00')),
-  (1002, NULL, 'Florencia Castro', 'florencia.castro@mail.com', '11 47934838', 'domicilio', 'Av. Siempre Viva', '2874', NULL, '1900', 'La Plata', 'Buenos Aires', 'transferencia', 'entregado', 68000, 6800, 0, 61200, 33000, 28200, TIMESTAMP(CURDATE() - INTERVAL 29 DAY, '13:10:00')),
-  (1003, NULL, 'Facundo Ruiz', 'facundo.ruiz@mail.com', '11 47942757', 'domicilio', 'Av. Siempre Viva', '2911', NULL, '5000', 'Córdoba', 'Córdoba', 'transferencia', 'entregado', 42000, 4200, 0, 37800, 19600, 18200, TIMESTAMP(CURDATE() - INTERVAL 29 DAY, '10:15:00')),
-  (1004, NULL, 'Agustina Torres', 'agustina.torres@mail.com', '11 47950676', 'domicilio', 'Av. Siempre Viva', '2948', NULL, '1900', 'La Plata', 'Buenos Aires', 'tarjeta', 'entregado', 38990, 0, 0, 38990, 20500, 18490, TIMESTAMP(CURDATE() - INTERVAL 28 DAY, '11:01:00')),
-  (1005, NULL, 'Mateo Sánchez', 'mateo.sanchez@mail.com', '11 47958595', 'domicilio', 'Av. Siempre Viva', '2985', NULL, '5500', 'Mendoza', 'Mendoza', 'tarjeta', 'entregado', 25000, 0, 6500, 31500, 12500, 12500, TIMESTAMP(CURDATE() - INTERVAL 28 DAY, '17:41:00')),
-  (1006, NULL, 'Nicolás Álvarez', 'nicolas.alvarez@mail.com', '11 47966514', 'domicilio', 'Av. Siempre Viva', '3022', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'tarjeta', 'entregado', 29500, 0, 6500, 36000, 14000, 15500, TIMESTAMP(CURDATE() - INTERVAL 28 DAY, '16:16:00')),
-  (1007, NULL, 'Florencia Castro', 'florencia.castro@mail.com', '11 47974433', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'tarjeta', 'entregado', 27300, 0, 6500, 33800, 13100, 14200, TIMESTAMP(CURDATE() - INTERVAL 28 DAY, '13:14:00')),
-  (1008, NULL, 'Agustina Torres', 'agustina.torres@mail.com', '11 47982352', 'domicilio', 'Av. Siempre Viva', '3096', NULL, '5500', 'Mendoza', 'Mendoza', 'tarjeta', 'entregado', 64900, 0, 0, 64900, 36000, 28900, TIMESTAMP(CURDATE() - INTERVAL 27 DAY, '14:18:00')),
-  (1009, NULL, 'Sofía Rodríguez', 'sofia.rodriguez@mail.com', '11 47990271', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'tarjeta', 'entregado', 55000, 0, 6500, 61500, 30000, 25000, TIMESTAMP(CURDATE() - INTERVAL 27 DAY, '17:33:00')),
-  (1010, NULL, 'Nicolás Álvarez', 'nicolas.alvarez@mail.com', '11 47998190', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'tarjeta', 'entregado', 289000, 0, 0, 289000, 165000, 124000, TIMESTAMP(CURDATE() - INTERVAL 26 DAY, '11:17:00')),
-  (1011, NULL, 'Sofía Rodríguez', 'sofia.rodriguez@mail.com', '11 48006109', 'domicilio', 'Av. Siempre Viva', '3207', NULL, '5500', 'Mendoza', 'Mendoza', 'transferencia', 'entregado', 86300, 8630, 0, 77670, 41100, 36570, TIMESTAMP(CURDATE() - INTERVAL 25 DAY, '15:41:00')),
-  (1012, NULL, 'Valentina López', 'valentina.lopez@mail.com', '11 48014028', 'domicilio', 'Av. Siempre Viva', '3244', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'transferencia', 'entregado', 31200, 3120, 0, 28080, 16500, 11580, TIMESTAMP(CURDATE() - INTERVAL 25 DAY, '20:44:00')),
-  (1013, NULL, 'Camila Martínez', 'camila.martinez@mail.com', '11 48021947', 'domicilio', 'Av. Siempre Viva', '3281', NULL, '2000', 'Rosario', 'Santa Fe', 'tarjeta', 'entregado', 38500, 0, 0, 38500, 19000, 19500, TIMESTAMP(CURDATE() - INTERVAL 25 DAY, '17:41:00')),
-  (1014, 1, 'Cliente Demo', 'demo@tienda.com', '11 48029866', 'domicilio', 'Av. Siempre Viva', '3318', NULL, '1900', 'La Plata', 'Buenos Aires', 'transferencia', 'entregado', 31200, 3120, 0, 28080, 16500, 11580, TIMESTAMP(CURDATE() - INTERVAL 24 DAY, '20:27:00')),
-  (1015, NULL, 'Martín Gómez', 'martin.gomez@mail.com', '11 48037785', 'domicilio', 'Av. Siempre Viva', '3355', NULL, '5500', 'Mendoza', 'Mendoza', 'tarjeta', 'entregado', 102980, 0, 6500, 109480, 53500, 49480, TIMESTAMP(CURDATE() - INTERVAL 24 DAY, '13:57:00')),
-  (1016, NULL, 'Florencia Castro', 'florencia.castro@mail.com', '11 48045704', 'domicilio', 'Av. Siempre Viva', '3392', NULL, '5000', 'Córdoba', 'Córdoba', 'transferencia', 'entregado', 31200, 3120, 0, 28080, 16500, 11580, TIMESTAMP(CURDATE() - INTERVAL 24 DAY, '15:30:00')),
-  (1017, NULL, 'Valentina López', 'valentina.lopez@mail.com', '11 48053623', 'domicilio', 'Av. Siempre Viva', '3429', NULL, '2000', 'Rosario', 'Santa Fe', 'tarjeta', 'entregado', 27300, 0, 6500, 33800, 13100, 14200, TIMESTAMP(CURDATE() - INTERVAL 23 DAY, '14:49:00')),
-  (1018, NULL, 'Micaela Ortiz', 'micaela.ortiz@mail.com', '11 48061542', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'transferencia', 'entregado', 55000, 5500, 6500, 56000, 30000, 19500, TIMESTAMP(CURDATE() - INTERVAL 22 DAY, '15:42:00')),
-  (1019, NULL, 'Facundo Ruiz', 'facundo.ruiz@mail.com', '11 48069461', 'domicilio', 'Av. Siempre Viva', '3503', NULL, '1900', 'La Plata', 'Buenos Aires', 'tarjeta', 'entregado', 59500, 0, 6500, 66000, 28800, 30700, TIMESTAMP(CURDATE() - INTERVAL 22 DAY, '14:22:00')),
-  (1020, NULL, 'Lucía Fernández', 'lucia.fernandez@mail.com', '11 48077380', 'domicilio', 'Av. Siempre Viva', '3540', NULL, '2000', 'Rosario', 'Santa Fe', 'tarjeta', 'entregado', 327990, 0, 0, 327990, 185500, 142490, TIMESTAMP(CURDATE() - INTERVAL 21 DAY, '20:30:00')),
-  (1021, NULL, 'Juan Pérez', 'juan.perez@mail.com', '11 48085299', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'tarjeta', 'entregado', 143000, 0, 0, 143000, 75000, 68000, TIMESTAMP(CURDATE() - INTERVAL 21 DAY, '10:54:00')),
-  (1022, NULL, 'Micaela Ortiz', 'micaela.ortiz@mail.com', '11 48093218', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'tarjeta', 'entregado', 25000, 0, 6500, 31500, 12500, 12500, TIMESTAMP(CURDATE() - INTERVAL 21 DAY, '20:44:00')),
-  (1023, NULL, 'Camila Martínez', 'camila.martinez@mail.com', '11 48101137', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'transferencia', 'entregado', 38990, 3899, 6500, 41591, 20500, 14591, TIMESTAMP(CURDATE() - INTERVAL 21 DAY, '19:51:00')),
-  (1024, NULL, 'Lucía Fernández', 'lucia.fernandez@mail.com', '11 48109056', 'domicilio', 'Av. Siempre Viva', '3688', NULL, '5500', 'Mendoza', 'Mendoza', 'transferencia', 'entregado', 55000, 5500, 6500, 56000, 30000, 19500, TIMESTAMP(CURDATE() - INTERVAL 20 DAY, '19:52:00')),
-  (1025, NULL, 'Nicolás Álvarez', 'nicolas.alvarez@mail.com', '11 48116975', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'tarjeta', 'entregado', 38500, 0, 0, 38500, 19000, 19500, TIMESTAMP(CURDATE() - INTERVAL 20 DAY, '16:16:00')),
-  (1026, NULL, 'Santiago Morales', 'santiago.morales@mail.com', '11 48124894', 'domicilio', 'Av. Siempre Viva', '3762', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'tarjeta', 'entregado', 43500, 0, 6500, 50000, 20700, 22800, TIMESTAMP(CURDATE() - INTERVAL 19 DAY, '13:36:00')),
-  (1027, 1, 'Cliente Demo', 'demo@tienda.com', '11 48132813', 'domicilio', 'Av. Siempre Viva', '3799', NULL, '5000', 'Córdoba', 'Córdoba', 'tarjeta', 'entregado', 31200, 0, 6500, 37700, 16500, 14700, TIMESTAMP(CURDATE() - INTERVAL 19 DAY, '16:36:00')),
-  (1028, NULL, 'Micaela Ortiz', 'micaela.ortiz@mail.com', '11 48140732', 'domicilio', 'Av. Siempre Viva', '3836', NULL, '5000', 'Córdoba', 'Córdoba', 'transferencia', 'entregado', 102500, 10250, 6500, 98750, 55200, 37050, TIMESTAMP(CURDATE() - INTERVAL 19 DAY, '20:23:00')),
-  (1029, NULL, 'Valentina López', 'valentina.lopez@mail.com', '11 48148651', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'tarjeta', 'entregado', 38990, 0, 0, 38990, 20500, 18490, TIMESTAMP(CURDATE() - INTERVAL 18 DAY, '17:28:00')),
-  (1030, NULL, 'Santiago Morales', 'santiago.morales@mail.com', '11 48156570', 'domicilio', 'Av. Siempre Viva', '3910', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'transferencia', 'entregado', 42000, 4200, 6500, 44300, 23500, 14300, TIMESTAMP(CURDATE() - INTERVAL 17 DAY, '21:24:00')),
-  (1031, NULL, 'Sofía Rodríguez', 'sofia.rodriguez@mail.com', '11 48164489', 'domicilio', 'Av. Siempre Viva', '3947', NULL, '2000', 'Rosario', 'Santa Fe', 'tarjeta', 'cancelado', 96600, 0, 6500, 103100, 45800, 50800, TIMESTAMP(CURDATE() - INTERVAL 17 DAY, '18:44:00')),
-  (1032, NULL, 'Sofía Rodríguez', 'sofia.rodriguez@mail.com', '11 48172408', 'domicilio', 'Av. Siempre Viva', '3984', NULL, '5000', 'Córdoba', 'Córdoba', 'tarjeta', 'entregado', 84500, 0, 6500, 91000, 44000, 40500, TIMESTAMP(CURDATE() - INTERVAL 17 DAY, '13:32:00')),
-  (1033, NULL, 'Valentina López', 'valentina.lopez@mail.com', '11 48180327', 'domicilio', 'Av. Siempre Viva', '4021', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'transferencia', 'entregado', 103890, 10389, 6500, 100001, 56500, 37001, TIMESTAMP(CURDATE() - INTERVAL 16 DAY, '12:56:00')),
-  (1034, NULL, 'Santiago Morales', 'santiago.morales@mail.com', '11 48188246', 'domicilio', 'Av. Siempre Viva', '4058', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'tarjeta', 'entregado', 97990, 0, 6500, 104490, 48500, 49490, TIMESTAMP(CURDATE() - INTERVAL 16 DAY, '15:35:00')),
-  (1035, NULL, 'Micaela Ortiz', 'micaela.ortiz@mail.com', '11 48196165', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'tarjeta', 'entregado', 48300, 0, 0, 48300, 22900, 25400, TIMESTAMP(CURDATE() - INTERVAL 16 DAY, '14:48:00')),
-  (1036, NULL, 'Micaela Ortiz', 'micaela.ortiz@mail.com', '11 48204084', 'domicilio', 'Av. Siempre Viva', '4132', NULL, '1900', 'La Plata', 'Buenos Aires', 'tarjeta', 'entregado', 55000, 0, 6500, 61500, 30000, 25000, TIMESTAMP(CURDATE() - INTERVAL 15 DAY, '12:54:00')),
-  (1037, NULL, 'Martín Gómez', 'martin.gomez@mail.com', '11 48212003', 'domicilio', 'Av. Siempre Viva', '4169', NULL, '5000', 'Córdoba', 'Córdoba', 'tarjeta', 'entregado', 42000, 0, 0, 42000, 23500, 18500, TIMESTAMP(CURDATE() - INTERVAL 15 DAY, '18:24:00')),
-  (1038, NULL, 'Sofía Rodríguez', 'sofia.rodriguez@mail.com', '11 48219922', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'tarjeta', 'entregado', 29500, 0, 6500, 36000, 14000, 15500, TIMESTAMP(CURDATE() - INTERVAL 14 DAY, '16:43:00')),
-  (1039, NULL, 'Julieta Romero', 'julieta.romero@mail.com', '11 48227841', 'domicilio', 'Av. Siempre Viva', '4243', NULL, '1900', 'La Plata', 'Buenos Aires', 'transferencia', 'entregado', 42000, 4200, 6500, 44300, 23500, 14300, TIMESTAMP(CURDATE() - INTERVAL 14 DAY, '16:19:00')),
-  (1040, 1, 'Cliente Demo', 'demo@tienda.com', '11 48235760', 'domicilio', 'Av. Siempre Viva', '4280', NULL, '5500', 'Mendoza', 'Mendoza', 'tarjeta', 'entregado', 86200, 0, 6500, 92700, 46500, 39700, TIMESTAMP(CURDATE() - INTERVAL 14 DAY, '15:10:00')),
-  (1041, NULL, 'Camila Martínez', 'camila.martinez@mail.com', '11 48243679', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'tarjeta', 'entregado', 60500, 0, 6500, 67000, 27800, 32700, TIMESTAMP(CURDATE() - INTERVAL 13 DAY, '11:49:00')),
-  (1042, NULL, 'Valentina López', 'valentina.lopez@mail.com', '11 48251598', 'domicilio', 'Av. Siempre Viva', '4354', NULL, '1900', 'La Plata', 'Buenos Aires', 'tarjeta', 'entregado', 64900, 0, 6500, 71400, 36000, 28900, TIMESTAMP(CURDATE() - INTERVAL 13 DAY, '15:52:00')),
-  (1043, NULL, 'Juan Pérez', 'juan.perez@mail.com', '11 48259517', 'domicilio', 'Av. Siempre Viva', '4391', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'tarjeta', 'cancelado', 96100, 0, 6500, 102600, 52500, 43600, TIMESTAMP(CURDATE() - INTERVAL 12 DAY, '10:22:00')),
-  (1044, NULL, 'Florencia Castro', 'florencia.castro@mail.com', '11 48267436', 'domicilio', 'Av. Siempre Viva', '4428', NULL, '5500', 'Mendoza', 'Mendoza', 'transferencia', 'cancelado', 31200, 3120, 6500, 34580, 16500, 11580, TIMESTAMP(CURDATE() - INTERVAL 11 DAY, '19:03:00')),
-  (1045, NULL, 'Nicolás Álvarez', 'nicolas.alvarez@mail.com', '11 48275355', 'domicilio', 'Av. Siempre Viva', '4465', NULL, '5000', 'Córdoba', 'Córdoba', 'tarjeta', 'entregado', 55000, 0, 6500, 61500, 30000, 25000, TIMESTAMP(CURDATE() - INTERVAL 11 DAY, '21:24:00')),
-  (1046, NULL, 'Camila Martínez', 'camila.martinez@mail.com', '11 48283274', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'transferencia', 'entregado', 80500, 8050, 6500, 78950, 42500, 29950, TIMESTAMP(CURDATE() - INTERVAL 10 DAY, '19:13:00')),
-  (1047, NULL, 'Micaela Ortiz', 'micaela.ortiz@mail.com', '11 48291193', 'domicilio', 'Av. Siempre Viva', '4539', NULL, '2000', 'Rosario', 'Santa Fe', 'tarjeta', 'entregado', 21000, 0, 6500, 27500, 9800, 11200, TIMESTAMP(CURDATE() - INTERVAL 10 DAY, '21:06:00')),
-  (1048, NULL, 'Nicolás Álvarez', 'nicolas.alvarez@mail.com', '11 48299112', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'tarjeta', 'entregado', 42000, 0, 6500, 48500, 19600, 22400, TIMESTAMP(CURDATE() - INTERVAL 9 DAY, '13:14:00')),
-  (1049, NULL, 'Agustina Torres', 'agustina.torres@mail.com', '11 48307031', 'domicilio', 'Av. Siempre Viva', '4613', NULL, '1900', 'La Plata', 'Buenos Aires', 'transferencia', 'entregado', 42000, 4200, 6500, 44300, 23500, 14300, TIMESTAMP(CURDATE() - INTERVAL 9 DAY, '14:18:00')),
-  (1050, NULL, 'Florencia Castro', 'florencia.castro@mail.com', '11 48314950', 'domicilio', 'Av. Siempre Viva', '4650', NULL, '1900', 'La Plata', 'Buenos Aires', 'tarjeta', 'cancelado', 38500, 0, 6500, 45000, 19000, 19500, TIMESTAMP(CURDATE() - INTERVAL 8 DAY, '21:15:00')),
-  (1051, NULL, 'Tomás Díaz', 'tomas.diaz@mail.com', '11 48322869', 'domicilio', 'Av. Siempre Viva', '4687', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'tarjeta', 'entregado', 38990, 0, 0, 38990, 20500, 18490, TIMESTAMP(CURDATE() - INTERVAL 8 DAY, '09:35:00')),
-  (1052, NULL, 'Agustina Torres', 'agustina.torres@mail.com', '11 48330788', 'domicilio', 'Av. Siempre Viva', '4724', NULL, '2000', 'Rosario', 'Santa Fe', 'tarjeta', 'entregado', 55000, 0, 6500, 61500, 30000, 25000, TIMESTAMP(CURDATE() - INTERVAL 8 DAY, '09:22:00')),
-  (1053, 1, 'Cliente Demo', 'demo@tienda.com', '11 48338707', 'domicilio', 'Av. Siempre Viva', '4761', NULL, '2000', 'Rosario', 'Santa Fe', 'tarjeta', 'entregado', 97000, 0, 0, 97000, 53500, 43500, TIMESTAMP(CURDATE() - INTERVAL 8 DAY, '16:13:00')),
-  (1054, NULL, 'Sofía Rodríguez', 'sofia.rodriguez@mail.com', '11 48346626', 'domicilio', 'Av. Siempre Viva', '4798', NULL, '1900', 'La Plata', 'Buenos Aires', 'transferencia', 'entregado', 77000, 7700, 6500, 75800, 38000, 31300, TIMESTAMP(CURDATE() - INTERVAL 8 DAY, '14:48:00')),
-  (1055, NULL, 'Valentina López', 'valentina.lopez@mail.com', '11 48354545', 'domicilio', 'Av. Siempre Viva', '4835', NULL, '1900', 'La Plata', 'Buenos Aires', 'tarjeta', 'entregado', 343600, 0, 0, 343600, 191200, 152400, TIMESTAMP(CURDATE() - INTERVAL 7 DAY, '17:54:00')),
-  (1056, NULL, 'Micaela Ortiz', 'micaela.ortiz@mail.com', '11 48362464', 'domicilio', 'Av. Siempre Viva', '4872', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'transferencia', 'enviado', 42000, 4200, 6500, 44300, 23500, 14300, TIMESTAMP(CURDATE() - INTERVAL 7 DAY, '20:59:00')),
-  (1057, NULL, 'Lucía Fernández', 'lucia.fernandez@mail.com', '11 48370383', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'tarjeta', 'cancelado', 21000, 0, 6500, 27500, 9800, 11200, TIMESTAMP(CURDATE() - INTERVAL 7 DAY, '14:50:00')),
-  (1058, NULL, 'Facundo Ruiz', 'facundo.ruiz@mail.com', '11 48378302', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'tarjeta', 'enviado', 38500, 0, 6500, 45000, 19000, 19500, TIMESTAMP(CURDATE() - INTERVAL 7 DAY, '21:52:00')),
-  (1059, NULL, 'Micaela Ortiz', 'micaela.ortiz@mail.com', '11 48386221', 'domicilio', 'Av. Siempre Viva', '4983', NULL, '2000', 'Rosario', 'Santa Fe', 'tarjeta', 'entregado', 289000, 0, 0, 289000, 165000, 124000, TIMESTAMP(CURDATE() - INTERVAL 6 DAY, '14:47:00')),
-  (1060, NULL, 'Florencia Castro', 'florencia.castro@mail.com', '11 48394140', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'transferencia', 'enviado', 38500, 3850, 6500, 41150, 19000, 15650, TIMESTAMP(CURDATE() - INTERVAL 6 DAY, '09:18:00')),
-  (1061, NULL, 'Santiago Morales', 'santiago.morales@mail.com', '11 48402059', 'domicilio', 'Av. Siempre Viva', '157', NULL, '5500', 'Mendoza', 'Mendoza', 'tarjeta', 'enviado', 29500, 0, 6500, 36000, 14000, 15500, TIMESTAMP(CURDATE() - INTERVAL 5 DAY, '21:53:00')),
-  (1062, NULL, 'Micaela Ortiz', 'micaela.ortiz@mail.com', '11 48409978', 'domicilio', 'Av. Siempre Viva', '194', NULL, '5000', 'Córdoba', 'Córdoba', 'transferencia', 'enviado', 115200, 11520, 6500, 110180, 63500, 40180, TIMESTAMP(CURDATE() - INTERVAL 5 DAY, '11:29:00')),
-  (1063, NULL, 'Florencia Castro', 'florencia.castro@mail.com', '11 48417897', 'domicilio', 'Av. Siempre Viva', '231', NULL, '5500', 'Mendoza', 'Mendoza', 'tarjeta', 'entregado', 55000, 0, 6500, 61500, 30000, 25000, TIMESTAMP(CURDATE() - INTERVAL 5 DAY, '13:19:00')),
-  (1064, NULL, 'Facundo Ruiz', 'facundo.ruiz@mail.com', '11 48425816', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'tarjeta', 'entregado', 31200, 0, 6500, 37700, 16500, 14700, TIMESTAMP(CURDATE() - INTERVAL 5 DAY, '17:33:00')),
-  (1065, NULL, 'Nicolás Álvarez', 'nicolas.alvarez@mail.com', '11 48433735', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'tarjeta', 'enviado', 42000, 0, 0, 42000, 23500, 18500, TIMESTAMP(CURDATE() - INTERVAL 4 DAY, '13:06:00')),
-  (1066, 1, 'Cliente Demo', 'demo@tienda.com', '11 48441654', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'tarjeta', 'enviado', 62400, 0, 0, 62400, 33000, 29400, TIMESTAMP(CURDATE() - INTERVAL 4 DAY, '12:30:00')),
-  (1067, NULL, 'Lucía Fernández', 'lucia.fernandez@mail.com', '11 48449573', 'domicilio', 'Av. Siempre Viva', '379', NULL, '5500', 'Mendoza', 'Mendoza', 'transferencia', 'entregado', 59990, 5999, 6500, 60491, 30300, 23691, TIMESTAMP(CURDATE() - INTERVAL 4 DAY, '19:47:00')),
-  (1068, NULL, 'Mateo Sánchez', 'mateo.sanchez@mail.com', '11 48457492', 'domicilio', 'Av. Siempre Viva', '416', NULL, '5000', 'Córdoba', 'Córdoba', 'transferencia', 'pagado', 29500, 2950, 6500, 33050, 14000, 12550, TIMESTAMP(CURDATE() - INTERVAL 3 DAY, '11:54:00')),
-  (1069, NULL, 'Valentina López', 'valentina.lopez@mail.com', '11 48465411', 'domicilio', 'Av. Siempre Viva', '453', NULL, '5000', 'Córdoba', 'Córdoba', 'transferencia', 'enviado', 21000, 2100, 6500, 25400, 9800, 9100, TIMESTAMP(CURDATE() - INTERVAL 3 DAY, '20:18:00')),
-  (1070, NULL, 'Florencia Castro', 'florencia.castro@mail.com', '11 48473330', 'domicilio', 'Av. Siempre Viva', '490', NULL, '1900', 'La Plata', 'Buenos Aires', 'transferencia', 'enviado', 31200, 3120, 6500, 34580, 16500, 11580, TIMESTAMP(CURDATE() - INTERVAL 3 DAY, '11:23:00')),
-  (1071, NULL, 'Nicolás Álvarez', 'nicolas.alvarez@mail.com', '11 48481249', 'domicilio', 'Av. Siempre Viva', '527', NULL, '1900', 'La Plata', 'Buenos Aires', 'tarjeta', 'cancelado', 42000, 0, 0, 42000, 23500, 18500, TIMESTAMP(CURDATE() - INTERVAL 2 DAY, '11:30:00')),
-  (1072, NULL, 'Florencia Castro', 'florencia.castro@mail.com', '11 48489168', 'domicilio', 'Av. Siempre Viva', '564', NULL, '2000', 'Rosario', 'Santa Fe', 'transferencia', 'pagado', 107480, 10748, 6500, 103232, 55000, 41732, TIMESTAMP(CURDATE() - INTERVAL 2 DAY, '12:31:00')),
-  (1073, NULL, 'Martín Gómez', 'martin.gomez@mail.com', '11 48497087', 'domicilio', 'Av. Siempre Viva', '601', NULL, '2000', 'Rosario', 'Santa Fe', 'tarjeta', 'pagado', 38990, 0, 6500, 45490, 20500, 18490, TIMESTAMP(CURDATE() - INTERVAL 1 DAY, '09:57:00')),
-  (1074, NULL, 'Agustina Torres', 'agustina.torres@mail.com', '11 48505006', 'domicilio', 'Av. Siempre Viva', '638', NULL, '2000', 'Rosario', 'Santa Fe', 'tarjeta', 'pagado', 84000, 0, 0, 84000, 47000, 37000, TIMESTAMP(CURDATE() - INTERVAL 1 DAY, '09:09:00')),
-  (1075, NULL, 'Mateo Sánchez', 'mateo.sanchez@mail.com', '11 48512925', 'domicilio', 'Av. Siempre Viva', '675', NULL, '5000', 'Córdoba', 'Córdoba', 'transferencia', 'pagado', 38990, 3899, 0, 35091, 20500, 14591, TIMESTAMP(CURDATE() - INTERVAL 1 DAY, '21:57:00')),
-  (1076, NULL, 'Florencia Castro', 'florencia.castro@mail.com', '11 48520844', 'domicilio', 'Av. Siempre Viva', '712', NULL, '5500', 'Mendoza', 'Mendoza', 'transferencia', 'pendiente', 55000, 5500, 6500, 56000, 30000, 19500, NOW() - INTERVAL 32 MINUTE),
-  (1077, NULL, 'Tomás Díaz', 'tomas.diaz@mail.com', '11 48528763', 'domicilio', 'Av. Siempre Viva', '749', NULL, '2000', 'Rosario', 'Santa Fe', 'tarjeta', 'pagado', 37000, 0, 0, 37000, 16400, 20600, NOW() - INTERVAL 109 MINUTE),
-  (1078, NULL, 'Camila Martínez', 'camila.martinez@mail.com', '11 48536682', 'domicilio', 'Av. Siempre Viva', '786', NULL, '5000', 'Córdoba', 'Córdoba', 'tarjeta', 'pagado', 38990, 0, 6500, 45490, 20500, 18490, NOW() - INTERVAL 145 MINUTE),
-  (1079, 1, 'Cliente Demo', 'demo@tienda.com', '11 48544601', 'domicilio', 'Av. Siempre Viva', '823', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'tarjeta', 'pagado', 289000, 0, 0, 289000, 165000, 124000, NOW() - INTERVAL 184 MINUTE),
-  (1080, NULL, 'Valentina López', 'valentina.lopez@mail.com', '11 48552520', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'transferencia', 'pendiente', 55000, 5500, 0, 49500, 30000, 19500, NOW() - INTERVAL 253 MINUTE);
+  (1001, 1, 'Cliente Demo', 'demo@tienda.com', '11 45260181', 'domicilio', 'Av. Siempre Viva', '1876', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'transferencia', 'entregado', 26900, 2690, 6500, 30710, 13000, 11210, TIMESTAMP(CURDATE() - INTERVAL 29 DAY, '10:05:00')),
+  (1002, NULL, 'Valentina López', 'valentina.lopez@mail.com', '11 41318609', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'transferencia', 'entregado', 59900, 5990, 0, 53910, 31000, 22910, TIMESTAMP(CURDATE() - INTERVAL 29 DAY, '16:03:00')),
+  (1003, NULL, 'Mateo Sánchez', 'mateo.sanchez@mail.com', '11 40824628', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'transferencia', 'entregado', 26900, 2690, 0, 24210, 13000, 11210, TIMESTAMP(CURDATE() - INTERVAL 29 DAY, '12:06:00')),
+  (1004, NULL, 'Juan Pérez', 'juan.perez@mail.com', '11 49351819', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'tarjeta', 'entregado', 26900, 0, 0, 26900, 13000, 13900, TIMESTAMP(CURDATE() - INTERVAL 28 DAY, '18:27:00')),
+  (1005, 1, 'Cliente Demo', 'demo@tienda.com', '11 45797543', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'tarjeta', 'entregado', 44900, 0, 0, 44900, 22500, 22400, TIMESTAMP(CURDATE() - INTERVAL 28 DAY, '14:33:00')),
+  (1006, NULL, 'Camila Martínez', 'camila.martinez@mail.com', '11 45749118', 'domicilio', 'Av. Siempre Viva', '3231', NULL, '2000', 'Rosario', 'Santa Fe', 'tarjeta', 'entregado', 115700, 0, 6500, 122200, 58000, 57700, TIMESTAMP(CURDATE() - INTERVAL 28 DAY, '20:04:00')),
+  (1007, NULL, 'Martín Gómez', 'martin.gomez@mail.com', '11 49555979', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'transferencia', 'entregado', 124700, 12470, 0, 112230, 62000, 50230, TIMESTAMP(CURDATE() - INTERVAL 27 DAY, '11:03:00')),
+  (1008, 1, 'Cliente Demo', 'demo@tienda.com', '11 44974650', 'domicilio', 'Av. Siempre Viva', '3124', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'tarjeta', 'entregado', 147700, 0, 6500, 154200, 75500, 72200, TIMESTAMP(CURDATE() - INTERVAL 27 DAY, '14:08:00')),
+  (1009, NULL, 'Mateo Sánchez', 'mateo.sanchez@mail.com', '11 46671276', 'domicilio', 'Av. Siempre Viva', '3721', NULL, '5500', 'Mendoza', 'Mendoza', 'transferencia', 'entregado', 115700, 11570, 6500, 110630, 58000, 46130, TIMESTAMP(CURDATE() - INTERVAL 26 DAY, '15:43:00')),
+  (1010, NULL, 'Valentina López', 'valentina.lopez@mail.com', '11 43212233', 'domicilio', 'Av. Siempre Viva', '1816', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'tarjeta', 'entregado', 24900, 0, 6500, 31400, 12000, 12900, TIMESTAMP(CURDATE() - INTERVAL 26 DAY, '10:09:00')),
+  (1011, NULL, 'Martín Gómez', 'martin.gomez@mail.com', '11 45995289', 'domicilio', 'Av. Siempre Viva', '1740', NULL, '5500', 'Mendoza', 'Mendoza', 'tarjeta', 'entregado', 209400, 0, 0, 209400, 103000, 106400, TIMESTAMP(CURDATE() - INTERVAL 26 DAY, '17:40:00')),
+  (1012, NULL, 'Florencia Castro', 'florencia.castro@mail.com', '11 43137215', 'domicilio', 'Av. Siempre Viva', '204', NULL, '1900', 'La Plata', 'Buenos Aires', 'transferencia', 'entregado', 79800, 7980, 6500, 78320, 39500, 32320, TIMESTAMP(CURDATE() - INTERVAL 25 DAY, '15:39:00')),
+  (1013, NULL, 'Facundo Ruiz', 'facundo.ruiz@mail.com', '11 43962459', 'domicilio', 'Av. Siempre Viva', '2081', NULL, '5000', 'Córdoba', 'Córdoba', 'tarjeta', 'entregado', 24900, 0, 6500, 31400, 12000, 12900, TIMESTAMP(CURDATE() - INTERVAL 25 DAY, '17:30:00')),
+  (1014, NULL, 'Nicolás Álvarez', 'nicolas.alvarez@mail.com', '11 41215472', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'transferencia', 'entregado', 94800, 9480, 0, 85320, 48000, 37320, TIMESTAMP(CURDATE() - INTERVAL 24 DAY, '10:48:00')),
+  (1015, 1, 'Cliente Demo', 'demo@tienda.com', '11 48414852', 'domicilio', 'Av. Siempre Viva', '3329', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'transferencia', 'entregado', 59900, 5990, 6500, 60410, 31000, 22910, TIMESTAMP(CURDATE() - INTERVAL 24 DAY, '19:51:00')),
+  (1016, 1, 'Cliente Demo', 'demo@tienda.com', '11 43363387', 'domicilio', 'Av. Siempre Viva', '893', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'tarjeta', 'entregado', 44900, 0, 6500, 51400, 22500, 22400, TIMESTAMP(CURDATE() - INTERVAL 24 DAY, '17:16:00')),
+  (1017, NULL, 'Tomás Díaz', 'tomas.diaz@mail.com', '11 49575513', 'domicilio', 'Av. Siempre Viva', '2656', NULL, '2000', 'Rosario', 'Santa Fe', 'tarjeta', 'entregado', 119800, 0, 6500, 126300, 62000, 57800, TIMESTAMP(CURDATE() - INTERVAL 23 DAY, '13:30:00')),
+  (1018, NULL, 'Juan Pérez', 'juan.perez@mail.com', '11 40751163', 'domicilio', 'Av. Siempre Viva', '3144', NULL, '2000', 'Rosario', 'Santa Fe', 'transferencia', 'entregado', 84800, 8480, 6500, 82820, 43000, 33320, TIMESTAMP(CURDATE() - INTERVAL 23 DAY, '17:25:00')),
+  (1019, NULL, 'Facundo Ruiz', 'facundo.ruiz@mail.com', '11 42220297', 'domicilio', 'Av. Siempre Viva', '520', NULL, '5000', 'Córdoba', 'Córdoba', 'tarjeta', 'entregado', 111700, 0, 6500, 118200, 56000, 55700, TIMESTAMP(CURDATE() - INTERVAL 22 DAY, '21:41:00')),
+  (1020, NULL, 'Martín Gómez', 'martin.gomez@mail.com', '11 42633043', 'domicilio', 'Av. Siempre Viva', '1816', NULL, '5500', 'Mendoza', 'Mendoza', 'transferencia', 'entregado', 26900, 2690, 6500, 30710, 13000, 11210, TIMESTAMP(CURDATE() - INTERVAL 22 DAY, '14:34:00')),
+  (1021, NULL, 'Agustina Torres', 'agustina.torres@mail.com', '11 40579868', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'transferencia', 'entregado', 26900, 2690, 0, 24210, 13000, 11210, TIMESTAMP(CURDATE() - INTERVAL 22 DAY, '10:55:00')),
+  (1022, 1, 'Cliente Demo', 'demo@tienda.com', '11 47290222', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'transferencia', 'entregado', 61800, 6180, 0, 55620, 30000, 25620, TIMESTAMP(CURDATE() - INTERVAL 21 DAY, '18:35:00')),
+  (1023, NULL, 'Camila Martínez', 'camila.martinez@mail.com', '11 41803340', 'domicilio', 'Av. Siempre Viva', '1433', NULL, '2000', 'Rosario', 'Santa Fe', 'transferencia', 'entregado', 53800, 5380, 6500, 54920, 26000, 22420, TIMESTAMP(CURDATE() - INTERVAL 21 DAY, '11:28:00')),
+  (1024, NULL, 'Juan Pérez', 'juan.perez@mail.com', '11 48983478', 'domicilio', 'Av. Siempre Viva', '1806', NULL, '2000', 'Rosario', 'Santa Fe', 'transferencia', 'entregado', 51800, 5180, 6500, 53120, 25000, 21620, TIMESTAMP(CURDATE() - INTERVAL 20 DAY, '17:08:00')),
+  (1025, NULL, 'Facundo Ruiz', 'facundo.ruiz@mail.com', '11 46751361', 'domicilio', 'Av. Siempre Viva', '2804', NULL, '5000', 'Córdoba', 'Córdoba', 'tarjeta', 'entregado', 44900, 0, 6500, 51400, 22500, 22400, TIMESTAMP(CURDATE() - INTERVAL 20 DAY, '21:41:00')),
+  (1026, NULL, 'Sofía Rodríguez', 'sofia.rodriguez@mail.com', '11 42427316', 'domicilio', 'Av. Siempre Viva', '901', NULL, '5500', 'Mendoza', 'Mendoza', 'transferencia', 'entregado', 149700, 14970, 6500, 141230, 76000, 58730, TIMESTAMP(CURDATE() - INTERVAL 20 DAY, '15:26:00')),
+  (1027, NULL, 'Sofía Rodríguez', 'sofia.rodriguez@mail.com', '11 45150587', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'transferencia', 'entregado', 124700, 12470, 0, 112230, 62000, 50230, TIMESTAMP(CURDATE() - INTERVAL 19 DAY, '14:32:00')),
+  (1028, NULL, 'Facundo Ruiz', 'facundo.ruiz@mail.com', '11 41311440', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'tarjeta', 'entregado', 27900, 0, 0, 27900, 13500, 14400, TIMESTAMP(CURDATE() - INTERVAL 19 DAY, '14:25:00')),
+  (1029, 1, 'Cliente Demo', 'demo@tienda.com', '11 42889751', 'domicilio', 'Av. Siempre Viva', '2698', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'tarjeta', 'entregado', 34900, 0, 6500, 41400, 17000, 17900, TIMESTAMP(CURDATE() - INTERVAL 19 DAY, '14:01:00')),
+  (1030, NULL, 'Facundo Ruiz', 'facundo.ruiz@mail.com', '11 44193141', 'domicilio', 'Av. Siempre Viva', '3006', NULL, '5000', 'Córdoba', 'Córdoba', 'transferencia', 'entregado', 97700, 9770, 6500, 94430, 47500, 40430, TIMESTAMP(CURDATE() - INTERVAL 18 DAY, '10:33:00')),
+  (1031, NULL, 'Mateo Sánchez', 'mateo.sanchez@mail.com', '11 41240234', 'domicilio', 'Av. Siempre Viva', '251', NULL, '5500', 'Mendoza', 'Mendoza', 'tarjeta', 'entregado', 141600, 0, 6500, 148100, 70500, 71100, TIMESTAMP(CURDATE() - INTERVAL 18 DAY, '10:16:00')),
+  (1032, NULL, 'Florencia Castro', 'florencia.castro@mail.com', '11 40883873', 'domicilio', 'Av. Siempre Viva', '1040', NULL, '1900', 'La Plata', 'Buenos Aires', 'transferencia', 'entregado', 119600, 11960, 6500, 114140, 58000, 49640, TIMESTAMP(CURDATE() - INTERVAL 17 DAY, '21:13:00')),
+  (1033, NULL, 'Sofía Rodríguez', 'sofia.rodriguez@mail.com', '11 43265020', 'domicilio', 'Av. Siempre Viva', '2824', NULL, '5500', 'Mendoza', 'Mendoza', 'tarjeta', 'entregado', 44900, 0, 6500, 51400, 22500, 22400, TIMESTAMP(CURDATE() - INTERVAL 17 DAY, '10:05:00')),
+  (1034, NULL, 'Valentina López', 'valentina.lopez@mail.com', '11 48493407', 'domicilio', 'Av. Siempre Viva', '1447', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'tarjeta', 'entregado', 59900, 0, 6500, 66400, 31000, 28900, TIMESTAMP(CURDATE() - INTERVAL 17 DAY, '14:23:00')),
+  (1035, NULL, 'Martín Gómez', 'martin.gomez@mail.com', '11 45304352', 'domicilio', 'Av. Siempre Viva', '2787', NULL, '5500', 'Mendoza', 'Mendoza', 'tarjeta', 'entregado', 55800, 0, 6500, 62300, 27000, 28800, TIMESTAMP(CURDATE() - INTERVAL 16 DAY, '14:32:00')),
+  (1036, 1, 'Cliente Demo', 'demo@tienda.com', '11 43380141', 'domicilio', 'Av. Siempre Viva', '2679', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'tarjeta', 'entregado', 24900, 0, 6500, 31400, 12000, 12900, TIMESTAMP(CURDATE() - INTERVAL 16 DAY, '14:19:00')),
+  (1037, NULL, 'Mateo Sánchez', 'mateo.sanchez@mail.com', '11 41982965', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'transferencia', 'entregado', 140600, 14060, 0, 126540, 70000, 56540, TIMESTAMP(CURDATE() - INTERVAL 15 DAY, '18:08:00')),
+  (1038, NULL, 'Martín Gómez', 'martin.gomez@mail.com', '11 48909310', 'domicilio', 'Av. Siempre Viva', '307', NULL, '5500', 'Mendoza', 'Mendoza', 'tarjeta', 'entregado', 59900, 0, 6500, 66400, 31000, 28900, TIMESTAMP(CURDATE() - INTERVAL 15 DAY, '17:35:00')),
+  (1039, NULL, 'Lucía Fernández', 'lucia.fernandez@mail.com', '11 40837407', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'transferencia', 'entregado', 44900, 4490, 0, 40410, 22500, 17910, TIMESTAMP(CURDATE() - INTERVAL 15 DAY, '11:47:00')),
+  (1040, NULL, 'Tomás Díaz', 'tomas.diaz@mail.com', '11 47414333', 'domicilio', 'Av. Siempre Viva', '2691', NULL, '2000', 'Rosario', 'Santa Fe', 'transferencia', 'entregado', 168500, 16850, 0, 151650, 83000, 68650, TIMESTAMP(CURDATE() - INTERVAL 14 DAY, '10:39:00')),
+  (1041, NULL, 'Lucía Fernández', 'lucia.fernandez@mail.com', '11 43192544', 'domicilio', 'Av. Siempre Viva', '507', NULL, '2000', 'Rosario', 'Santa Fe', 'tarjeta', 'entregado', 146700, 0, 6500, 153200, 75000, 71700, TIMESTAMP(CURDATE() - INTERVAL 14 DAY, '14:43:00')),
+  (1042, NULL, 'Tomás Díaz', 'tomas.diaz@mail.com', '11 43748477', 'domicilio', 'Av. Siempre Viva', '1979', NULL, '2000', 'Rosario', 'Santa Fe', 'tarjeta', 'entregado', 61800, 0, 6500, 68300, 30000, 31800, TIMESTAMP(CURDATE() - INTERVAL 13 DAY, '10:18:00')),
+  (1043, 1, 'Cliente Demo', 'demo@tienda.com', '11 41874633', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'tarjeta', 'entregado', 26900, 0, 0, 26900, 13000, 13900, TIMESTAMP(CURDATE() - INTERVAL 13 DAY, '18:16:00')),
+  (1044, NULL, 'Sofía Rodríguez', 'sofia.rodriguez@mail.com', '11 42984153', 'domicilio', 'Av. Siempre Viva', '1760', NULL, '5500', 'Mendoza', 'Mendoza', 'tarjeta', 'entregado', 69800, 0, 6500, 76300, 34500, 35300, TIMESTAMP(CURDATE() - INTERVAL 13 DAY, '20:28:00')),
+  (1045, NULL, 'Nicolás Álvarez', 'nicolas.alvarez@mail.com', '11 42656515', 'domicilio', 'Av. Siempre Viva', '148', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'tarjeta', 'entregado', 27900, 0, 6500, 34400, 13500, 14400, TIMESTAMP(CURDATE() - INTERVAL 12 DAY, '13:45:00')),
+  (1046, NULL, 'Tomás Díaz', 'tomas.diaz@mail.com', '11 44451669', 'domicilio', 'Av. Siempre Viva', '311', NULL, '2000', 'Rosario', 'Santa Fe', 'tarjeta', 'entregado', 55800, 0, 6500, 62300, 27000, 28800, TIMESTAMP(CURDATE() - INTERVAL 12 DAY, '14:06:00')),
+  (1047, NULL, 'Lucía Fernández', 'lucia.fernandez@mail.com', '11 44234685', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'tarjeta', 'entregado', 55800, 0, 0, 55800, 27000, 28800, TIMESTAMP(CURDATE() - INTERVAL 11 DAY, '16:58:00')),
+  (1048, NULL, 'Martín Gómez', 'martin.gomez@mail.com', '11 48310679', 'domicilio', 'Av. Siempre Viva', '799', NULL, '5500', 'Mendoza', 'Mendoza', 'tarjeta', 'entregado', 44900, 0, 6500, 51400, 22500, 22400, TIMESTAMP(CURDATE() - INTERVAL 11 DAY, '18:08:00')),
+  (1049, NULL, 'Camila Martínez', 'camila.martinez@mail.com', '11 46544446', 'domicilio', 'Av. Siempre Viva', '2150', NULL, '2000', 'Rosario', 'Santa Fe', 'transferencia', 'entregado', 172600, 17260, 0, 155340, 87500, 67840, TIMESTAMP(CURDATE() - INTERVAL 11 DAY, '11:13:00')),
+  (1050, 1, 'Cliente Demo', 'demo@tienda.com', '11 47837576', 'domicilio', 'Av. Siempre Viva', '2376', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'tarjeta', 'entregado', 26900, 0, 6500, 33400, 13000, 13900, TIMESTAMP(CURDATE() - INTERVAL 10 DAY, '12:21:00')),
+  (1051, NULL, 'Facundo Ruiz', 'facundo.ruiz@mail.com', '11 45354930', 'domicilio', 'Av. Siempre Viva', '2452', NULL, '5000', 'Córdoba', 'Córdoba', 'tarjeta', 'entregado', 141600, 0, 6500, 148100, 70000, 71600, TIMESTAMP(CURDATE() - INTERVAL 10 DAY, '17:17:00')),
+  (1052, NULL, 'Sofía Rodríguez', 'sofia.rodriguez@mail.com', '11 42883143', 'domicilio', 'Av. Siempre Viva', '3006', NULL, '5500', 'Mendoza', 'Mendoza', 'tarjeta', 'entregado', 94700, 0, 6500, 101200, 46500, 48200, TIMESTAMP(CURDATE() - INTERVAL 10 DAY, '10:27:00')),
+  (1053, 1, 'Cliente Demo', 'demo@tienda.com', '11 47970168', 'domicilio', 'Av. Siempre Viva', '546', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'tarjeta', 'entregado', 84800, 0, 6500, 91300, 43000, 41800, TIMESTAMP(CURDATE() - INTERVAL 9 DAY, '18:43:00')),
+  (1054, NULL, 'Tomás Díaz', 'tomas.diaz@mail.com', '11 47180023', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'transferencia', 'entregado', 62800, 6280, 0, 56520, 30500, 26020, TIMESTAMP(CURDATE() - INTERVAL 9 DAY, '16:44:00')),
+  (1055, 1, 'Cliente Demo', 'demo@tienda.com', '11 41114893', 'domicilio', 'Av. Siempre Viva', '1395', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'transferencia', 'entregado', 87800, 8780, 6500, 85520, 44500, 34520, TIMESTAMP(CURDATE() - INTERVAL 8 DAY, '17:17:00')),
+  (1056, NULL, 'Lucía Fernández', 'lucia.fernandez@mail.com', '11 43783830', 'domicilio', 'Av. Siempre Viva', '1820', NULL, '2000', 'Rosario', 'Santa Fe', 'tarjeta', 'entregado', 72800, 0, 6500, 79300, 36000, 36800, TIMESTAMP(CURDATE() - INTERVAL 8 DAY, '20:41:00')),
+  (1057, 1, 'Cliente Demo', 'demo@tienda.com', '11 41436537', 'domicilio', 'Av. Siempre Viva', '1723', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'transferencia', 'entregado', 44900, 4490, 6500, 46910, 22500, 17910, TIMESTAMP(CURDATE() - INTERVAL 8 DAY, '15:43:00')),
+  (1058, NULL, 'Mateo Sánchez', 'mateo.sanchez@mail.com', '11 40481373', 'domicilio', 'Av. Siempre Viva', '3742', NULL, '5500', 'Mendoza', 'Mendoza', 'tarjeta', 'entregado', 59900, 0, 6500, 66400, 31000, 28900, TIMESTAMP(CURDATE() - INTERVAL 7 DAY, '14:48:00')),
+  (1059, NULL, 'Nicolás Álvarez', 'nicolas.alvarez@mail.com', '11 41979237', 'domicilio', 'Av. Siempre Viva', '681', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'tarjeta', 'entregado', 114700, 0, 6500, 121200, 56500, 58200, TIMESTAMP(CURDATE() - INTERVAL 7 DAY, '10:38:00')),
+  (1060, NULL, 'Valentina López', 'valentina.lopez@mail.com', '11 40026751', 'domicilio', 'Av. Siempre Viva', '2015', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'tarjeta', 'pagado', 59900, 0, 6500, 66400, 31000, 28900, TIMESTAMP(CURDATE() - INTERVAL 6 DAY, '18:47:00')),
+  (1061, NULL, 'Florencia Castro', 'florencia.castro@mail.com', '11 44655721', 'domicilio', 'Av. Siempre Viva', '3208', NULL, '1900', 'La Plata', 'Buenos Aires', 'tarjeta', 'entregado', 34900, 0, 6500, 41400, 17000, 17900, TIMESTAMP(CURDATE() - INTERVAL 6 DAY, '11:35:00')),
+  (1062, NULL, 'Mateo Sánchez', 'mateo.sanchez@mail.com', '11 46546107', 'domicilio', 'Av. Siempre Viva', '2043', NULL, '5500', 'Mendoza', 'Mendoza', 'tarjeta', 'entregado', 55800, 0, 6500, 62300, 27000, 28800, TIMESTAMP(CURDATE() - INTERVAL 6 DAY, '21:57:00')),
+  (1063, NULL, 'Florencia Castro', 'florencia.castro@mail.com', '11 46360607', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'tarjeta', 'enviado', 34900, 0, 0, 34900, 17000, 17900, TIMESTAMP(CURDATE() - INTERVAL 5 DAY, '19:21:00')),
+  (1064, 1, 'Cliente Demo', 'demo@tienda.com', '11 45459045', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'transferencia', 'pagado', 27900, 2790, 0, 25110, 13500, 11610, TIMESTAMP(CURDATE() - INTERVAL 5 DAY, '11:01:00')),
+  (1065, NULL, 'Mateo Sánchez', 'mateo.sanchez@mail.com', '11 41776467', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'tarjeta', 'entregado', 24900, 0, 0, 24900, 12000, 12900, TIMESTAMP(CURDATE() - INTERVAL 4 DAY, '21:49:00')),
+  (1066, NULL, 'Agustina Torres', 'agustina.torres@mail.com', '11 49355759', 'domicilio', 'Av. Siempre Viva', '2760', NULL, '5500', 'Mendoza', 'Mendoza', 'tarjeta', 'enviado', 26900, 0, 6500, 33400, 13000, 13900, TIMESTAMP(CURDATE() - INTERVAL 4 DAY, '16:04:00')),
+  (1067, NULL, 'Florencia Castro', 'florencia.castro@mail.com', '11 47885261', 'domicilio', 'Av. Siempre Viva', '1930', NULL, '1900', 'La Plata', 'Buenos Aires', 'tarjeta', 'entregado', 27900, 0, 6500, 34400, 13500, 14400, TIMESTAMP(CURDATE() - INTERVAL 4 DAY, '17:45:00')),
+  (1068, NULL, 'Agustina Torres', 'agustina.torres@mail.com', '11 43267938', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'tarjeta', 'entregado', 89700, 0, 0, 89700, 43500, 46200, TIMESTAMP(CURDATE() - INTERVAL 3 DAY, '13:28:00')),
+  (1069, NULL, 'Mateo Sánchez', 'mateo.sanchez@mail.com', '11 42332493', 'domicilio', 'Av. Siempre Viva', '2760', NULL, '5500', 'Mendoza', 'Mendoza', 'tarjeta', 'pagado', 69800, 0, 6500, 76300, 34000, 35800, TIMESTAMP(CURDATE() - INTERVAL 3 DAY, '18:14:00')),
+  (1070, 1, 'Cliente Demo', 'demo@tienda.com', '11 41701073', 'domicilio', 'Av. Siempre Viva', '2488', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'tarjeta', 'enviado', 62800, 0, 6500, 69300, 30500, 32300, TIMESTAMP(CURDATE() - INTERVAL 2 DAY, '19:52:00')),
+  (1071, 1, 'Cliente Demo', 'demo@tienda.com', '11 43158279', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'tarjeta', 'pagado', 44900, 0, 0, 44900, 22500, 22400, TIMESTAMP(CURDATE() - INTERVAL 2 DAY, '21:39:00')),
+  (1072, NULL, 'Sofía Rodríguez', 'sofia.rodriguez@mail.com', '11 43055203', 'domicilio', 'Av. Siempre Viva', '858', NULL, '5500', 'Mendoza', 'Mendoza', 'tarjeta', 'entregado', 34900, 0, 6500, 41400, 17000, 17900, TIMESTAMP(CURDATE() - INTERVAL 2 DAY, '20:23:00')),
+  (1073, NULL, 'Juan Pérez', 'juan.perez@mail.com', '11 44130787', 'retiro', NULL, NULL, NULL, NULL, NULL, NULL, 'tarjeta', 'pagado', 24900, 0, 0, 24900, 12000, 12900, TIMESTAMP(CURDATE() - INTERVAL 1 DAY, '12:40:00')),
+  (1074, NULL, 'Martín Gómez', 'martin.gomez@mail.com', '11 41264644', 'domicilio', 'Av. Siempre Viva', '1700', NULL, '5500', 'Mendoza', 'Mendoza', 'tarjeta', 'entregado', 90700, 0, 6500, 97200, 44000, 46700, TIMESTAMP(CURDATE() - INTERVAL 1 DAY, '20:12:00')),
+  (1075, NULL, 'Tomás Díaz', 'tomas.diaz@mail.com', '11 46306261', 'domicilio', 'Av. Siempre Viva', '632', NULL, '2000', 'Rosario', 'Santa Fe', 'tarjeta', 'pagado', 24900, 0, 6500, 31400, 12000, 12900, NOW() - INTERVAL 410 MINUTE),
+  (1076, NULL, 'Florencia Castro', 'florencia.castro@mail.com', '11 40826199', 'domicilio', 'Av. Siempre Viva', '1260', NULL, '1900', 'La Plata', 'Buenos Aires', 'tarjeta', 'pagado', 44900, 0, 6500, 51400, 22500, 22400, NOW() - INTERVAL 330 MINUTE),
+  (1077, NULL, 'Agustina Torres', 'agustina.torres@mail.com', '11 48211673', 'domicilio', 'Av. Siempre Viva', '318', NULL, '5500', 'Mendoza', 'Mendoza', 'tarjeta', 'pagado', 59900, 0, 6500, 66400, 31000, 28900, NOW() - INTERVAL 253 MINUTE),
+  (1078, 1, 'Cliente Demo', 'demo@tienda.com', '11 49619239', 'domicilio', 'Av. Siempre Viva', '270', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'transferencia', 'pendiente', 113700, 11370, 6500, 108830, 57000, 45330, NOW() - INTERVAL 184 MINUTE),
+  (1079, NULL, 'Valentina López', 'valentina.lopez@mail.com', '11 48265123', 'domicilio', 'Av. Siempre Viva', '2353', NULL, '1405', 'CABA', 'Ciudad Autónoma de Buenos Aires', 'transferencia', 'pendiente', 148600, 14860, 6500, 140240, 74000, 59740, NOW() - INTERVAL 145 MINUTE),
+  (1080, NULL, 'Lucía Fernández', 'lucia.fernandez@mail.com', '11 44649366', 'domicilio', 'Av. Siempre Viva', '2005', NULL, '2000', 'Rosario', 'Santa Fe', 'transferencia', 'pendiente', 79700, 7970, 6500, 78230, 38500, 33230, NOW() - INTERVAL 109 MINUTE);
 
 -- Cobro: los pedidos pagados/enviados/entregados tienen el pago aprobado
 UPDATE pedidos SET pago_estado = 'aprobado', pagado_en = creado_en
@@ -338,110 +256,133 @@ WHERE email = 'demo@tienda.com';
 
 UPDATE pedidos SET actualizado_en = creado_en;
 
--- ── Renglones de los pedidos (102) ─────────────────────────
+-- ── Renglones de los pedidos (125) ─────────────────────────
 INSERT INTO pedido_items (pedido_id, producto_id, nombre, color, precio, costo, cantidad) VALUES
-  (1001, 1, 'Producto Clásico Edición Cuero', 'Negro', 25000, 12500, 1),
-  (1002, 3, 'Producto Personalizado con Caja de Regalo', 'Negro', 38500, 19000, 1),
-  (1002, 2, 'Producto Madera Boca Ancha con Detalle Metálico', 'Madera', 29500, 14000, 1),
-  (1003, 5, 'Producto Artesanal Terminación Mate', 'Crudo', 21000, 9800, 2),
-  (1004, 4, 'Producto Personalizado Grabado a Láser', 'Blanco', 38990, 20500, 1),
-  (1005, 1, 'Producto Clásico Edición Cuero', 'Negro', 25000, 12500, 1),
-  (1006, 2, 'Producto Madera Boca Ancha con Detalle Metálico', 'Madera', 29500, 14000, 1),
-  (1007, 10, 'Producto Madera Torneada a Mano', 'Madera', 27300, 13100, 1),
-  (1008, 8, 'Combo Regalo Completo con Accesorios', 'Blanco', 64900, 36000, 1),
-  (1009, 7, 'Producto Imperial Base Reforzada', 'Negro', 55000, 30000, 1),
-  (1010, 12, 'Set Empresarial Personalizado x10', 'Gris', 289000, 165000, 1),
-  (1011, 2, 'Producto Madera Boca Ancha con Detalle Metálico', 'Madera', 29500, 14000, 2),
-  (1011, 10, 'Producto Madera Torneada a Mano', 'Madera', 27300, 13100, 1),
-  (1012, 11, 'Producto Forrado en Cuero Crudo', 'Crudo', 31200, 16500, 1),
-  (1013, 3, 'Producto Personalizado con Caja de Regalo', 'Negro', 38500, 19000, 1),
-  (1014, 11, 'Producto Forrado en Cuero Crudo', 'Crudo', 31200, 16500, 1),
-  (1015, 1, 'Producto Clásico Edición Cuero', 'Negro', 25000, 12500, 1),
-  (1015, 4, 'Producto Personalizado Grabado a Láser', 'Blanco', 38990, 20500, 2),
-  (1016, 11, 'Producto Forrado en Cuero Crudo', 'Crudo', 31200, 16500, 1),
-  (1017, 10, 'Producto Madera Torneada a Mano', 'Madera', 27300, 13100, 1),
-  (1018, 7, 'Producto Imperial Base Reforzada', 'Negro', 55000, 30000, 1),
-  (1019, 5, 'Producto Artesanal Terminación Mate', 'Crudo', 21000, 9800, 1),
-  (1019, 3, 'Producto Personalizado con Caja de Regalo', 'Negro', 38500, 19000, 1),
-  (1020, 4, 'Producto Personalizado Grabado a Láser', 'Blanco', 38990, 20500, 1),
-  (1020, 12, 'Set Empresarial Personalizado x10', 'Gris', 289000, 165000, 1),
-  (1021, 2, 'Producto Madera Boca Ancha con Detalle Metálico', 'Madera', 29500, 14000, 2),
-  (1021, 6, 'Producto Acero Inoxidable Térmico', 'Gris', 42000, 23500, 2),
-  (1022, 1, 'Producto Clásico Edición Cuero', 'Negro', 25000, 12500, 1),
-  (1023, 4, 'Producto Personalizado Grabado a Láser', 'Blanco', 38990, 20500, 1),
-  (1024, 7, 'Producto Imperial Base Reforzada', 'Negro', 55000, 30000, 1),
-  (1025, 3, 'Producto Personalizado con Caja de Regalo', 'Negro', 38500, 19000, 1),
-  (1026, 1, 'Producto Clásico Edición Cuero', 'Negro', 25000, 12500, 1),
-  (1026, 9, 'Producto Cerámica Esmaltada', 'Blanco', 18500, 8200, 1),
-  (1027, 11, 'Producto Forrado en Cuero Crudo', 'Crudo', 31200, 16500, 1),
-  (1028, 6, 'Producto Acero Inoxidable Térmico', 'Gris', 42000, 23500, 2),
-  (1028, 9, 'Producto Cerámica Esmaltada', 'Blanco', 18500, 8200, 1),
-  (1029, 4, 'Producto Personalizado Grabado a Láser', 'Blanco', 38990, 20500, 1),
-  (1030, 6, 'Producto Acero Inoxidable Térmico', 'Gris', 42000, 23500, 1),
-  (1031, 10, 'Producto Madera Torneada a Mano', 'Madera', 27300, 13100, 2),
-  (1031, 5, 'Producto Artesanal Terminación Mate', 'Crudo', 21000, 9800, 2),
-  (1032, 7, 'Producto Imperial Base Reforzada', 'Negro', 55000, 30000, 1),
-  (1032, 2, 'Producto Madera Boca Ancha con Detalle Metálico', 'Madera', 29500, 14000, 1),
-  (1033, 8, 'Combo Regalo Completo con Accesorios', 'Blanco', 64900, 36000, 1),
-  (1033, 4, 'Producto Personalizado Grabado a Láser', 'Blanco', 38990, 20500, 1),
-  (1034, 2, 'Producto Madera Boca Ancha con Detalle Metálico', 'Madera', 29500, 14000, 2),
-  (1034, 4, 'Producto Personalizado Grabado a Láser', 'Blanco', 38990, 20500, 1),
-  (1035, 5, 'Producto Artesanal Terminación Mate', 'Crudo', 21000, 9800, 1),
-  (1035, 10, 'Producto Madera Torneada a Mano', 'Madera', 27300, 13100, 1),
-  (1036, 7, 'Producto Imperial Base Reforzada', 'Negro', 55000, 30000, 1),
-  (1037, 6, 'Producto Acero Inoxidable Térmico', 'Gris', 42000, 23500, 1),
-  (1038, 2, 'Producto Madera Boca Ancha con Detalle Metálico', 'Madera', 29500, 14000, 1),
-  (1039, 6, 'Producto Acero Inoxidable Térmico', 'Gris', 42000, 23500, 1),
-  (1040, 11, 'Producto Forrado en Cuero Crudo', 'Crudo', 31200, 16500, 1),
-  (1040, 7, 'Producto Imperial Base Reforzada', 'Negro', 55000, 30000, 1),
-  (1041, 9, 'Producto Cerámica Esmaltada', 'Blanco', 18500, 8200, 1),
-  (1041, 5, 'Producto Artesanal Terminación Mate', 'Crudo', 21000, 9800, 2),
-  (1042, 8, 'Combo Regalo Completo con Accesorios', 'Blanco', 64900, 36000, 1),
-  (1043, 8, 'Combo Regalo Completo con Accesorios', 'Blanco', 64900, 36000, 1),
-  (1043, 11, 'Producto Forrado en Cuero Crudo', 'Crudo', 31200, 16500, 1),
-  (1044, 11, 'Producto Forrado en Cuero Crudo', 'Crudo', 31200, 16500, 1),
-  (1045, 7, 'Producto Imperial Base Reforzada', 'Negro', 55000, 30000, 1),
-  (1046, 6, 'Producto Acero Inoxidable Térmico', 'Gris', 42000, 23500, 1),
-  (1046, 3, 'Producto Personalizado con Caja de Regalo', 'Negro', 38500, 19000, 1),
-  (1047, 5, 'Producto Artesanal Terminación Mate', 'Crudo', 21000, 9800, 1),
-  (1048, 5, 'Producto Artesanal Terminación Mate', 'Crudo', 21000, 9800, 2),
-  (1049, 6, 'Producto Acero Inoxidable Térmico', 'Gris', 42000, 23500, 1),
-  (1050, 3, 'Producto Personalizado con Caja de Regalo', 'Negro', 38500, 19000, 1),
-  (1051, 4, 'Producto Personalizado Grabado a Láser', 'Blanco', 38990, 20500, 1),
-  (1052, 7, 'Producto Imperial Base Reforzada', 'Negro', 55000, 30000, 1),
-  (1053, 7, 'Producto Imperial Base Reforzada', 'Negro', 55000, 30000, 1),
-  (1053, 6, 'Producto Acero Inoxidable Térmico', 'Gris', 42000, 23500, 1),
-  (1054, 3, 'Producto Personalizado con Caja de Regalo', 'Negro', 38500, 19000, 2),
-  (1055, 12, 'Set Empresarial Personalizado x10', 'Gris', 289000, 165000, 1),
-  (1055, 10, 'Producto Madera Torneada a Mano', 'Madera', 27300, 13100, 2),
-  (1056, 6, 'Producto Acero Inoxidable Térmico', 'Gris', 42000, 23500, 1),
-  (1057, 5, 'Producto Artesanal Terminación Mate', 'Crudo', 21000, 9800, 1),
-  (1058, 3, 'Producto Personalizado con Caja de Regalo', 'Negro', 38500, 19000, 1),
-  (1059, 12, 'Set Empresarial Personalizado x10', 'Gris', 289000, 165000, 1),
-  (1060, 3, 'Producto Personalizado con Caja de Regalo', 'Negro', 38500, 19000, 1),
-  (1061, 2, 'Producto Madera Boca Ancha con Detalle Metálico', 'Madera', 29500, 14000, 1),
-  (1062, 6, 'Producto Acero Inoxidable Térmico', 'Gris', 42000, 23500, 2),
-  (1062, 11, 'Producto Forrado en Cuero Crudo', 'Crudo', 31200, 16500, 1),
-  (1063, 7, 'Producto Imperial Base Reforzada', 'Negro', 55000, 30000, 1),
-  (1064, 11, 'Producto Forrado en Cuero Crudo', 'Crudo', 31200, 16500, 1),
-  (1065, 6, 'Producto Acero Inoxidable Térmico', 'Gris', 42000, 23500, 1),
-  (1066, 11, 'Producto Forrado en Cuero Crudo', 'Crudo', 31200, 16500, 2),
-  (1067, 5, 'Producto Artesanal Terminación Mate', 'Crudo', 21000, 9800, 1),
-  (1067, 4, 'Producto Personalizado Grabado a Láser', 'Blanco', 38990, 20500, 1),
-  (1068, 2, 'Producto Madera Boca Ancha con Detalle Metálico', 'Madera', 29500, 14000, 1),
-  (1069, 5, 'Producto Artesanal Terminación Mate', 'Crudo', 21000, 9800, 1),
-  (1070, 11, 'Producto Forrado en Cuero Crudo', 'Crudo', 31200, 16500, 1),
-  (1071, 6, 'Producto Acero Inoxidable Térmico', 'Gris', 42000, 23500, 1),
-  (1072, 2, 'Producto Madera Boca Ancha con Detalle Metálico', 'Madera', 29500, 14000, 1),
-  (1072, 4, 'Producto Personalizado Grabado a Láser', 'Blanco', 38990, 20500, 2),
-  (1073, 4, 'Producto Personalizado Grabado a Láser', 'Blanco', 38990, 20500, 1),
-  (1074, 6, 'Producto Acero Inoxidable Térmico', 'Gris', 42000, 23500, 2),
-  (1075, 4, 'Producto Personalizado Grabado a Láser', 'Blanco', 38990, 20500, 1),
-  (1076, 7, 'Producto Imperial Base Reforzada', 'Negro', 55000, 30000, 1),
-  (1077, 9, 'Producto Cerámica Esmaltada', 'Blanco', 18500, 8200, 2),
-  (1078, 4, 'Producto Personalizado Grabado a Láser', 'Blanco', 38990, 20500, 1),
-  (1079, 12, 'Set Empresarial Personalizado x10', 'Gris', 289000, 165000, 1),
-  (1080, 7, 'Producto Imperial Base Reforzada', 'Negro', 55000, 30000, 1);
+  (1001, 5, 'Remera Oversize Gráfica', 'Negro', 26900, 13000, 1),
+  (1002, 2, 'Campera Gabardina Negra', 'Negro', 59900, 31000, 1),
+  (1003, 5, 'Remera Oversize Gráfica', 'Negro', 26900, 13000, 1),
+  (1004, 5, 'Remera Oversize Gráfica', 'Negro', 26900, 13000, 1),
+  (1005, 6, 'Buzo Canguro Verde', 'Verde', 44900, 22500, 1),
+  (1006, 2, 'Campera Gabardina Negra', 'Negro', 59900, 31000, 1),
+  (1006, 3, 'Remera Boxy Verde Agua', 'Verde agua', 27900, 13500, 2),
+  (1007, 1, 'Polo Essential', 'Negro', 34900, 17000, 1),
+  (1007, 6, 'Buzo Canguro Verde', 'Verde', 44900, 22500, 2),
+  (1008, 3, 'Remera Boxy Verde Agua', 'Verde agua', 27900, 13500, 1),
+  (1008, 2, 'Campera Gabardina Negra', 'Negro', 59900, 31000, 2),
+  (1009, 3, 'Remera Boxy Verde Agua', 'Verde agua', 27900, 13500, 2),
+  (1009, 2, 'Campera Gabardina Negra', 'Negro', 59900, 31000, 1),
+  (1010, 4, 'Remera Boxy Marrón', 'Marrón', 24900, 12000, 1),
+  (1011, 6, 'Buzo Canguro Verde', 'Verde', 44900, 22500, 2),
+  (1011, 1, 'Polo Essential', 'Negro', 34900, 17000, 2),
+  (1011, 4, 'Remera Boxy Marrón', 'Marrón', 24900, 12000, 2),
+  (1012, 1, 'Polo Essential', 'Negro', 34900, 17000, 1),
+  (1012, 6, 'Buzo Canguro Verde', 'Verde', 44900, 22500, 1),
+  (1013, 4, 'Remera Boxy Marrón', 'Marrón', 24900, 12000, 1),
+  (1014, 1, 'Polo Essential', 'Negro', 34900, 17000, 1),
+  (1014, 2, 'Campera Gabardina Negra', 'Negro', 59900, 31000, 1),
+  (1015, 2, 'Campera Gabardina Negra', 'Negro', 59900, 31000, 1),
+  (1016, 6, 'Buzo Canguro Verde', 'Verde', 44900, 22500, 1),
+  (1017, 2, 'Campera Gabardina Negra', 'Negro', 59900, 31000, 2),
+  (1018, 2, 'Campera Gabardina Negra', 'Negro', 59900, 31000, 1),
+  (1018, 4, 'Remera Boxy Marrón', 'Marrón', 24900, 12000, 1),
+  (1019, 2, 'Campera Gabardina Negra', 'Negro', 59900, 31000, 1),
+  (1019, 5, 'Remera Oversize Gráfica', 'Negro', 26900, 13000, 1),
+  (1019, 4, 'Remera Boxy Marrón', 'Marrón', 24900, 12000, 1),
+  (1020, 5, 'Remera Oversize Gráfica', 'Negro', 26900, 13000, 1),
+  (1021, 5, 'Remera Oversize Gráfica', 'Negro', 26900, 13000, 1),
+  (1022, 5, 'Remera Oversize Gráfica', 'Negro', 26900, 13000, 1),
+  (1022, 1, 'Polo Essential', 'Negro', 34900, 17000, 1),
+  (1023, 5, 'Remera Oversize Gráfica', 'Negro', 26900, 13000, 2),
+  (1024, 4, 'Remera Boxy Marrón', 'Marrón', 24900, 12000, 1),
+  (1024, 5, 'Remera Oversize Gráfica', 'Negro', 26900, 13000, 1),
+  (1025, 6, 'Buzo Canguro Verde', 'Verde', 44900, 22500, 1),
+  (1026, 2, 'Campera Gabardina Negra', 'Negro', 59900, 31000, 1),
+  (1026, 6, 'Buzo Canguro Verde', 'Verde', 44900, 22500, 2),
+  (1027, 6, 'Buzo Canguro Verde', 'Verde', 44900, 22500, 2),
+  (1027, 1, 'Polo Essential', 'Negro', 34900, 17000, 1),
+  (1028, 3, 'Remera Boxy Verde Agua', 'Verde agua', 27900, 13500, 1),
+  (1029, 1, 'Polo Essential', 'Negro', 34900, 17000, 1),
+  (1030, 1, 'Polo Essential', 'Negro', 34900, 17000, 2),
+  (1030, 3, 'Remera Boxy Verde Agua', 'Verde agua', 27900, 13500, 1),
+  (1031, 3, 'Remera Boxy Verde Agua', 'Verde agua', 27900, 13500, 1),
+  (1031, 5, 'Remera Oversize Gráfica', 'Negro', 26900, 13000, 2),
+  (1031, 2, 'Campera Gabardina Negra', 'Negro', 59900, 31000, 1),
+  (1032, 1, 'Polo Essential', 'Negro', 34900, 17000, 2),
+  (1032, 4, 'Remera Boxy Marrón', 'Marrón', 24900, 12000, 2),
+  (1033, 6, 'Buzo Canguro Verde', 'Verde', 44900, 22500, 1),
+  (1034, 2, 'Campera Gabardina Negra', 'Negro', 59900, 31000, 1),
+  (1035, 3, 'Remera Boxy Verde Agua', 'Verde agua', 27900, 13500, 2),
+  (1036, 4, 'Remera Boxy Marrón', 'Marrón', 24900, 12000, 1),
+  (1037, 4, 'Remera Boxy Marrón', 'Marrón', 24900, 12000, 1),
+  (1037, 2, 'Campera Gabardina Negra', 'Negro', 59900, 31000, 1),
+  (1037, 3, 'Remera Boxy Verde Agua', 'Verde agua', 27900, 13500, 2),
+  (1038, 2, 'Campera Gabardina Negra', 'Negro', 59900, 31000, 1),
+  (1039, 6, 'Buzo Canguro Verde', 'Verde', 44900, 22500, 1),
+  (1040, 6, 'Buzo Canguro Verde', 'Verde', 44900, 22500, 2),
+  (1040, 4, 'Remera Boxy Marrón', 'Marrón', 24900, 12000, 1),
+  (1040, 5, 'Remera Oversize Gráfica', 'Negro', 26900, 13000, 2),
+  (1041, 5, 'Remera Oversize Gráfica', 'Negro', 26900, 13000, 1),
+  (1041, 2, 'Campera Gabardina Negra', 'Negro', 59900, 31000, 2),
+  (1042, 1, 'Polo Essential', 'Negro', 34900, 17000, 1),
+  (1042, 5, 'Remera Oversize Gráfica', 'Negro', 26900, 13000, 1),
+  (1043, 5, 'Remera Oversize Gráfica', 'Negro', 26900, 13000, 1),
+  (1044, 4, 'Remera Boxy Marrón', 'Marrón', 24900, 12000, 1),
+  (1044, 6, 'Buzo Canguro Verde', 'Verde', 44900, 22500, 1),
+  (1045, 3, 'Remera Boxy Verde Agua', 'Verde agua', 27900, 13500, 1),
+  (1046, 3, 'Remera Boxy Verde Agua', 'Verde agua', 27900, 13500, 2),
+  (1047, 3, 'Remera Boxy Verde Agua', 'Verde agua', 27900, 13500, 2),
+  (1048, 6, 'Buzo Canguro Verde', 'Verde', 44900, 22500, 1),
+  (1049, 2, 'Campera Gabardina Negra', 'Negro', 59900, 31000, 2),
+  (1049, 3, 'Remera Boxy Verde Agua', 'Verde agua', 27900, 13500, 1),
+  (1049, 4, 'Remera Boxy Marrón', 'Marrón', 24900, 12000, 1),
+  (1050, 5, 'Remera Oversize Gráfica', 'Negro', 26900, 13000, 1),
+  (1051, 4, 'Remera Boxy Marrón', 'Marrón', 24900, 12000, 1),
+  (1051, 6, 'Buzo Canguro Verde', 'Verde', 44900, 22500, 2),
+  (1051, 5, 'Remera Oversize Gráfica', 'Negro', 26900, 13000, 1),
+  (1052, 4, 'Remera Boxy Marrón', 'Marrón', 24900, 12000, 2),
+  (1052, 6, 'Buzo Canguro Verde', 'Verde', 44900, 22500, 1),
+  (1053, 4, 'Remera Boxy Marrón', 'Marrón', 24900, 12000, 1),
+  (1053, 2, 'Campera Gabardina Negra', 'Negro', 59900, 31000, 1),
+  (1054, 1, 'Polo Essential', 'Negro', 34900, 17000, 1),
+  (1054, 3, 'Remera Boxy Verde Agua', 'Verde agua', 27900, 13500, 1),
+  (1055, 3, 'Remera Boxy Verde Agua', 'Verde agua', 27900, 13500, 1),
+  (1055, 2, 'Campera Gabardina Negra', 'Negro', 59900, 31000, 1),
+  (1056, 6, 'Buzo Canguro Verde', 'Verde', 44900, 22500, 1),
+  (1056, 3, 'Remera Boxy Verde Agua', 'Verde agua', 27900, 13500, 1),
+  (1057, 6, 'Buzo Canguro Verde', 'Verde', 44900, 22500, 1),
+  (1058, 2, 'Campera Gabardina Negra', 'Negro', 59900, 31000, 1),
+  (1059, 6, 'Buzo Canguro Verde', 'Verde', 44900, 22500, 1),
+  (1059, 1, 'Polo Essential', 'Negro', 34900, 17000, 2),
+  (1060, 2, 'Campera Gabardina Negra', 'Negro', 59900, 31000, 1),
+  (1061, 1, 'Polo Essential', 'Negro', 34900, 17000, 1),
+  (1062, 3, 'Remera Boxy Verde Agua', 'Verde agua', 27900, 13500, 2),
+  (1063, 1, 'Polo Essential', 'Negro', 34900, 17000, 1),
+  (1064, 3, 'Remera Boxy Verde Agua', 'Verde agua', 27900, 13500, 1),
+  (1065, 4, 'Remera Boxy Marrón', 'Marrón', 24900, 12000, 1),
+  (1066, 5, 'Remera Oversize Gráfica', 'Negro', 26900, 13000, 1),
+  (1067, 3, 'Remera Boxy Verde Agua', 'Verde agua', 27900, 13500, 1),
+  (1068, 1, 'Polo Essential', 'Negro', 34900, 17000, 1),
+  (1068, 3, 'Remera Boxy Verde Agua', 'Verde agua', 27900, 13500, 1),
+  (1068, 5, 'Remera Oversize Gráfica', 'Negro', 26900, 13000, 1),
+  (1069, 1, 'Polo Essential', 'Negro', 34900, 17000, 2),
+  (1070, 3, 'Remera Boxy Verde Agua', 'Verde agua', 27900, 13500, 1),
+  (1070, 1, 'Polo Essential', 'Negro', 34900, 17000, 1),
+  (1071, 6, 'Buzo Canguro Verde', 'Verde', 44900, 22500, 1),
+  (1072, 1, 'Polo Essential', 'Negro', 34900, 17000, 1),
+  (1073, 4, 'Remera Boxy Marrón', 'Marrón', 24900, 12000, 1),
+  (1074, 1, 'Polo Essential', 'Negro', 34900, 17000, 1),
+  (1074, 3, 'Remera Boxy Verde Agua', 'Verde agua', 27900, 13500, 2),
+  (1075, 4, 'Remera Boxy Marrón', 'Marrón', 24900, 12000, 1),
+  (1076, 6, 'Buzo Canguro Verde', 'Verde', 44900, 22500, 1),
+  (1077, 2, 'Campera Gabardina Negra', 'Negro', 59900, 31000, 1),
+  (1078, 5, 'Remera Oversize Gráfica', 'Negro', 26900, 13000, 2),
+  (1078, 2, 'Campera Gabardina Negra', 'Negro', 59900, 31000, 1),
+  (1079, 2, 'Campera Gabardina Negra', 'Negro', 59900, 31000, 1),
+  (1079, 1, 'Polo Essential', 'Negro', 34900, 17000, 1),
+  (1079, 5, 'Remera Oversize Gráfica', 'Negro', 26900, 13000, 2),
+  (1080, 3, 'Remera Boxy Verde Agua', 'Verde agua', 27900, 13500, 1),
+  (1080, 4, 'Remera Boxy Marrón', 'Marrón', 24900, 12000, 1),
+  (1080, 5, 'Remera Oversize Gráfica', 'Negro', 26900, 13000, 1);
 
 ALTER TABLE pedidos AUTO_INCREMENT = 1081;
 

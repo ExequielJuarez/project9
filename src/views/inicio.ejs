@@ -26,9 +26,6 @@
         <% if (c.portada.botonTexto) { %>
           <a href="<%= c.portada.botonLink || '/catalogo' %>" class="btn btn--solido"><%= c.portada.botonTexto %> <span aria-hidden="true">→</span></a>
         <% } %>
-        <% if (c.portada.secundarioTexto) { %>
-          <a href="<%= c.portada.secundarioLink || '#' %>" class="portada-full__secundario"><%= c.portada.secundarioTexto %></a>
-        <% } %>
       </div>
     </div>
   </section>

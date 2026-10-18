@@ -38,7 +38,7 @@
           <section class="panel">
             <h2 class="panel__titulo">Información</h2>
             <div class="campos-admin">
-              <%- include('../partials/campo', { nombre: 'nombre', etiqueta: 'Nombre', clase: 'campo--completo', placeholder: 'Ej: Producto Madera Torneada a Mano', attrs: 'maxlength="90" required' }) %>
+              <%- include('../partials/campo', { nombre: 'nombre', etiqueta: 'Nombre', clase: 'campo--completo', placeholder: 'Ej: Remera Boxy Negra', attrs: 'maxlength="90" required' }) %>
               <%- include('../partials/campo', { nombre: 'categoria', etiqueta: 'Categoría', tipo: 'select', opciones: categorias }) %>
               <div class="campo <%= errores.color ? 'campo--error' : '' %>">
                 <label class="campo__label" for="color">Color</label>

@@ -11,9 +11,9 @@ const MAX_IMAGENES = 8;
 // Valores por defecto para productos cargados sin ficha completa
 const POR_DEFECTO = {
   cuotas: 6,
-  resumen: "Pieza hecha a mano, con materiales seleccionados y terminaciones cuidadas al detalle.",
+  resumen: "Prenda de calidad, pensada para usar todos los días.",
   descripcion: ["Acá va la descripción principal del producto: qué es, para quién está pensado y qué lo hace especial."],
-  destacados: ["Producto 100% artesanal"],
+  destacados: ["Cambios fáciles"],
 };
 
 const incluir = [
