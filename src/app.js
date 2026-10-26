@@ -12,7 +12,10 @@ const db = require("./model/database/models");
 const carritoService = require("./services/carritoService");
 const favoritoService = require("./services/favoritoService");
 
-const puerto = 3000;
+// PORT y HOST se pueden cambiar desde el .env. Con HOST=0.0.0.0 (por defecto) la
+// tienda también se puede abrir desde otros dispositivos de la misma red (ver LOCAL-CELULAR.md)
+const puerto = Number(process.env.PORT) || 3000;
+const host = process.env.HOST || "0.0.0.0";
 
 app.use(express.static(path.join(__dirname, "../public")));
 app.use(express.urlencoded({ extended: false }));
@@ -88,7 +91,15 @@ db.sequelize
   .then(() => require("./model/database/actualizar")())
   .then(() => {
     console.log(`✅ Conectado a la base de datos "${db.sequelize.config.database}"`);
-    app.listen(puerto, () => console.log(`🚀 Servidor Express corriendo en el puerto ${puerto}`));
+    app.listen(puerto, host, () => {
+      console.log(`🚀 Servidor Express corriendo en el puerto ${puerto}`);
+      console.log(`   En esta computadora:  http://localhost:${puerto}`);
+      if (host === "0.0.0.0" || host === "::") {
+        require("./helpers/red")
+          .ipsLocales()
+          .forEach((ip) => console.log(`   Desde el celular:     http://${ip}:${puerto}  (misma red Wi-Fi)`));
+      }
+    });
     // Pagos: modo y vencimiento de los pedidos con tarjeta que no se pagaron
     const pagos = require("./services/pagoService");
     console.log(
