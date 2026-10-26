@@ -1,0 +1,559 @@
+/* ==========================================================
+   ADMIN — Consola oscura (se carga solo en el panel, al final)
+
+   Paleta: Chinese Black (fondo) · Dark Jungle Green (tarjetas) ·
+   Jet (detalles) · Coffee (costos) · Antique Brass (acento).
+   La navegación es una barra superior con píldoras, sin menú lateral.
+
+   Truco: dentro de .admin-tema se invierten las variables que usan
+   las hojas del panel (--negro = texto claro, --blanco = superficie
+   oscura), así el resto de los estilos se adapta solo.
+   ========================================================== */
+
+.admin-tema {
+  --texto: #f2e4d8;
+  --negro: var(--texto);
+  --blanco: var(--jungle);
+  --grafito: #1d2b32;
+  --gris-100: var(--ink);
+  --gris-200: #27343a;
+  --gris-400: #7d8a8c;
+  --gris-600: #a89b92;
+  --gris-900: #2c3a41;
+  --linea: rgba(207, 157, 123, 0.16);
+  --hueso: #101c21;
+  --crema: #101c21;
+  --bone: #1d2b32;
+  --piedra: #1d2b32;
+
+  min-height: 100vh;
+  background:
+    radial-gradient(900px 420px at 88% -8%, rgba(207, 157, 123, 0.16), transparent 62%),
+    radial-gradient(700px 380px at -6% 0%, rgba(114, 75, 57, 0.18), transparent 60%),
+    var(--ink);
+  background-attachment: fixed;
+  color: var(--texto);
+}
+
+.admin-tema ::selection {
+  background: var(--brass);
+  color: var(--ink);
+}
+
+/* ---------- Navegación superior ---------- */
+.admin-top {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  padding: 14px var(--gutter);
+  background: rgba(12, 21, 25, 0.82);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--linea);
+}
+
+.admin-top__marca {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.admin-top__acciones {
+  flex: none;
+}
+
+.admin-top__logo {
+  font-family: var(--fuente-titulos);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: var(--brass-claro);
+}
+
+.admin-top__etiqueta {
+  padding: 3px 9px;
+  border: 1px solid var(--brass);
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+
+.admin-nav {
+  order: 3;
+  flex: 1 1 100%;
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  overflow-x: auto;
+  border: 1px solid var(--linea);
+  border-radius: 999px;
+  background: var(--jungle);
+  scrollbar-width: none;
+}
+
+.admin-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.admin-nav__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--gris-600);
+  transition: background var(--transicion), color var(--transicion);
+}
+
+.admin-nav__link:hover {
+  color: var(--texto);
+  background: rgba(207, 157, 123, 0.1);
+}
+
+.admin-nav__link.activo {
+  background: var(--brass);
+  color: var(--ink);
+}
+
+.admin-nav__badge {
+  display: grid;
+  place-items: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: rgba(207, 157, 123, 0.18);
+  color: var(--brass-claro);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.admin-nav__link.activo .admin-nav__badge {
+  background: rgba(12, 21, 25, 0.16);
+  color: var(--ink);
+}
+
+.admin-nav__badge--fuerte {
+  background: var(--brass);
+  color: var(--ink);
+}
+
+.admin-nav__link.activo .admin-nav__badge--fuerte {
+  background: var(--ink);
+  color: var(--brass-claro);
+}
+
+.admin-top__acciones {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-top__tienda {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  height: 38px;
+  padding: 0 14px;
+  border: 1px solid var(--linea);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gris-600);
+  transition: color var(--transicion), border-color var(--transicion);
+}
+
+.admin-top__tienda:hover {
+  color: var(--texto);
+  border-color: var(--brass);
+}
+
+.admin-tema .icono-btn {
+  color: var(--texto);
+}
+
+.admin-tema .notif__contador {
+  background: var(--brass);
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+/* Cuenta: avatar con menú */
+.admin-usuario {
+  position: relative;
+}
+
+.admin-usuario__inicial {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--brass);
+  color: var(--ink);
+  font-family: var(--fuente-titulos);
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+
+.admin-usuario__inicial::-webkit-details-marker {
+  display: none;
+}
+
+.admin-usuario__menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 60;
+  display: grid;
+  gap: 2px;
+  min-width: 230px;
+  padding: 16px;
+  border: 1px solid var(--linea);
+  border-radius: 18px;
+  background: var(--jungle);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+
+.admin-usuario__menu small {
+  color: var(--gris-600);
+}
+
+.admin-usuario__salir {
+  margin-top: 12px;
+  width: 100%;
+  height: 40px;
+  border: 1px solid var(--linea);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--texto);
+  transition: background var(--transicion), color var(--transicion);
+}
+
+.admin-usuario__salir:hover {
+  background: var(--brass);
+  color: var(--ink);
+  border-color: var(--brass);
+}
+
+@media (min-width: 900px) {
+  .admin-top {
+    flex-wrap: nowrap;
+    gap: 24px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .admin-top__marca {
+    flex: 1 1 0;
+  }
+
+  .admin-top__logo {
+    font-size: 22px;
+    letter-spacing: 0.12em;
+  }
+
+  .admin-nav {
+    order: 0;
+    flex: 0 1 auto;
+  }
+
+  .admin-top__acciones {
+    flex: 1 1 0;
+    justify-content: flex-end;
+  }
+
+  .admin-top__tienda {
+    display: inline-flex;
+  }
+}
+
+/* ---------- Contenido ---------- */
+.admin-main {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 32px var(--gutter) 96px;
+}
+
+.admin-cabecera__titulo {
+  font-family: var(--fuente-titulos);
+  font-size: clamp(40px, 6vw, 68px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.015em;
+  color: var(--texto);
+}
+
+.admin-cabecera__migas,
+.admin-cabecera__bajada {
+  color: var(--gris-600);
+}
+
+/* ---------- Tarjetas, paneles e indicadores ---------- */
+.panel,
+.kpi,
+.filtros-admin,
+.admin-vacio,
+.ficha-admin {
+  border: 1px solid var(--linea);
+  border-radius: 24px;
+  background: var(--jungle);
+  box-shadow: none;
+}
+
+.panel__titulo {
+  letter-spacing: 0.16em;
+  color: var(--brass-claro);
+}
+
+.panel__link,
+.tabla a:not(.btn) {
+  color: var(--brass-claro);
+}
+
+.kpi__valor {
+  color: var(--texto);
+}
+
+.kpi--principal,
+.kpi--oscuro {
+  border-color: var(--brass);
+  background: linear-gradient(150deg, var(--brass-claro), var(--brass) 55%, #b98562);
+  color: var(--ink);
+}
+
+.kpi--principal .kpi__label,
+.kpi--principal .kpi__detalle,
+.kpi--principal .kpi__valor,
+.kpi--principal .kpi__delta,
+.kpi--oscuro .kpi__label,
+.kpi--oscuro .kpi__detalle,
+.kpi--oscuro .kpi__valor {
+  color: var(--ink);
+}
+
+/* ---------- Gráfico: ganancia en brass, costo en coffee ---------- */
+.leyenda__muestra--ganancia,
+.ranking__barra span,
+.medidor span {
+  background: var(--brass);
+}
+
+.leyenda__muestra--costo {
+  background: var(--coffee);
+}
+
+.barra-ganancia {
+  fill: var(--brass);
+}
+
+.barra-costo {
+  fill: var(--coffee);
+}
+
+.linea-base {
+  stroke: rgba(207, 157, 123, 0.18);
+}
+
+.etiqueta-max {
+  fill: var(--brass-claro);
+}
+
+.columna:hover .columna__zona,
+.columna:focus .columna__zona {
+  fill: rgba(207, 157, 123, 0.08);
+}
+
+.grafico__tooltip {
+  border: 1px solid var(--linea);
+  border-radius: 14px;
+  background: #1d2b32;
+  color: var(--texto);
+}
+
+.medidor,
+.ranking__barra {
+  --pista: rgba(207, 157, 123, 0.12);
+}
+
+/* ---------- Tablas ---------- */
+.tabla th {
+  border-bottom-color: var(--linea);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--brass);
+}
+
+.tabla td,
+.tabla tbody tr {
+  border-color: var(--linea);
+}
+
+.tabla tbody tr:hover {
+  background: rgba(207, 157, 123, 0.06);
+}
+
+/* ---------- Estados ---------- */
+.estado {
+  border-color: var(--brass);
+  color: var(--brass-claro);
+}
+
+.estado--pendiente {
+  border-style: dashed;
+  border-color: var(--gris-600);
+  color: var(--gris-600);
+}
+
+.estado--pagado {
+  background: rgba(207, 157, 123, 0.16);
+}
+
+.estado--enviado {
+  background: var(--coffee);
+  border-color: var(--coffee);
+  color: #f6e7da;
+}
+
+.estado--entregado {
+  background: var(--brass);
+  border-color: var(--brass);
+  color: var(--ink);
+}
+
+.estado--cancelado {
+  border-color: var(--gris-400);
+  color: var(--gris-400);
+}
+
+.stock-tag--bajo {
+  color: var(--brass-claro);
+}
+
+/* ---------- Botones y controles ---------- */
+.admin-tema .btn {
+  border-radius: 999px;
+  letter-spacing: 0.12em;
+}
+
+.admin-tema .btn--solido {
+  background: var(--brass);
+  border-color: var(--brass);
+  color: var(--ink);
+}
+
+.admin-tema .btn--solido:hover {
+  background: var(--brass-claro);
+  border-color: var(--brass-claro);
+}
+
+.admin-tema .btn--linea {
+  border-color: rgba(207, 157, 123, 0.5);
+  color: var(--texto);
+}
+
+.admin-tema .btn--linea:hover {
+  background: var(--brass);
+  border-color: var(--brass);
+  color: var(--ink);
+}
+
+.segmentado {
+  border-radius: 999px;
+  overflow: hidden;
+  border-color: var(--linea);
+}
+
+.segmentado a.activo {
+  background: var(--brass);
+  color: var(--ink);
+}
+
+.admin-tema .campo__control,
+.admin-tema select,
+.admin-tema input,
+.admin-tema textarea {
+  border-color: var(--linea);
+  border-radius: 14px;
+  background-color: #101c21;
+  color: var(--texto);
+}
+
+.admin-tema .campo__control:focus,
+.admin-tema input:focus,
+.admin-tema select:focus,
+.admin-tema textarea:focus {
+  border-color: var(--brass);
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(207, 157, 123, 0.2);
+}
+
+.admin-tema ::placeholder {
+  color: var(--gris-400);
+}
+
+.admin-tema select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23cf9d7b' stroke-width='1.4'/%3E%3C/svg%3E");
+}
+
+.admin-tema img {
+  border-radius: 10px;
+}
+
+/* ---------- Modal ---------- */
+.modal {
+  background: rgba(12, 21, 25, 0.7);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.modal__caja {
+  border: 1px solid var(--linea);
+  border-radius: 24px;
+  background: var(--jungle);
+  color: var(--texto);
+}
+
+.admin-tema .toast {
+  background: var(--brass);
+  color: var(--ink);
+  border-radius: 999px;
+}
+
+/* ---------- Detalles de pedidos ---------- */
+.cobro {
+  border-radius: 999px;
+  padding: 1px 8px;
+}
+
+.cobro--aprobado {
+  border-color: rgba(207, 157, 123, 0.5);
+  background: rgba(207, 157, 123, 0.16);
+  color: var(--brass-claro);
+}
+
+.filtros-admin,
+.segmentado {
+  border-radius: 999px;
+}

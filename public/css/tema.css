@@ -7,31 +7,41 @@
                 carrito claro y footer oscuro.
    · KRAI/NORD → nombre a la izquierda y precio a la derecha, miniaturas
                 de productos sobre la portada, fichas con acordeones.
-   · Paleta "Colores" (café · hueso · tan · verde kombu).
+   · Paleta: Chinese Black · Dark Jungle Green · Jet · Coffee · Antique Brass.
    · Brutalista ("We don't do average") → cinta de texto gigante.
    · Menús móviles → barra de tabs inferior en el celular.
    ========================================================== */
 
 :root {
-  --ink: #15110d;
-  --cafe: #2b2118;
-  --kombu: #2e3a28;
-  --tan: #b99a6b;
-  --tan-claro: #d3bb95;
-  --hueso: #f5efe6;
-  --crema: #f5efe6;
-  --bone: #e9dfd0;
-  --linea: rgba(21, 17, 13, 0.14);
+  /* Paleta: Chinese Black · Dark Jungle Green · Jet · Coffee · Antique Brass */
+  --ink: #0c1519;
+  --jungle: #162127;
+  --jet: #3a3534;
+  --coffee: #724b39;
+  --brass: #cf9d7b;
+  --brass-claro: #e3bfa3;
+
+  /* Neutros claros: tintes del brass, para fondos y líneas */
+  --crema: #f8f1ec;
+  --hueso: #f8f1ec;
+  --bone: #f0e3da;
+  --linea: rgba(12, 21, 25, 0.14);
+
+  /* Nombres anteriores, apuntando a la paleta nueva */
+  --cafe: var(--jungle);
+  --kombu: var(--coffee);
+  --tan: var(--brass);
+  --tan-claro: var(--brass-claro);
 
   /* Variables que ya usa el resto de las hojas */
   --negro: var(--ink);
-  --grafito: var(--cafe);
-  --gris-900: #3a2f25;
-  --gris-600: #6f6558;
-  --gris-400: #a69b8b;
-  --gris-200: #ddd2c1;
-  --gris-100: #ece3d5;
-  --blanco: #fffdf9;
+  --grafito: var(--jungle);
+  --gris-900: var(--jet);
+  --gris-600: #6e6460;
+  --gris-400: #a89d97;
+  --gris-200: #e4d8cf;
+  --gris-100: #f1e6de;
+  --blanco: #fffcfa;
   --piedra: var(--bone);
   --contenedor: 1240px;
   --radio: 14px;
@@ -127,7 +137,7 @@ body {
    y un backdrop-filter lo dejaría encerrado dentro de él */
 @media (min-width: 1100px) {
   .header {
-    background: rgba(245, 239, 230, 0.92);
+    background: rgba(248, 241, 236, 0.92);
     -webkit-backdrop-filter: blur(14px);
     backdrop-filter: blur(14px);
   }
@@ -156,7 +166,7 @@ body {
 
 .cuenta__menu {
   border-radius: var(--radio);
-  box-shadow: 0 18px 40px rgba(21, 17, 13, 0.16);
+  box-shadow: 0 18px 40px rgba(12, 21, 25, 0.16);
 }
 
 /* Buscador: en celular, solo la lupa que abre el campo */
@@ -345,7 +355,7 @@ body {
 .apertura__velo {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(21, 17, 13, 0.1) 30%, rgba(21, 17, 13, 0.92) 92%);
+  background: linear-gradient(180deg, rgba(12, 21, 25, 0.1) 30%, rgba(12, 21, 25, 0.92) 92%);
 }
 
 .apertura__texto {
@@ -380,7 +390,7 @@ body {
   margin: 18px 0 28px;
   font-size: 15px;
   line-height: 1.6;
-  color: rgba(245, 239, 230, 0.82);
+  color: rgba(248, 241, 236, 0.82);
 }
 
 .apertura__riel {
@@ -402,7 +412,7 @@ body {
   .apertura__velo {
     inset: 0 0 0 auto;
     width: 58%;
-    background: linear-gradient(90deg, var(--ink) 0%, rgba(21, 17, 13, 0) 28%);
+    background: linear-gradient(90deg, var(--ink) 0%, rgba(12, 21, 25, 0) 28%);
   }
 
   .apertura__texto {
@@ -427,7 +437,7 @@ body {
     gap: 10px;
     padding: 12px;
     border-radius: 20px;
-    background: rgba(21, 17, 13, 0.5);
+    background: rgba(12, 21, 25, 0.5);
     -webkit-backdrop-filter: blur(14px);
     backdrop-filter: blur(14px);
   }
@@ -452,7 +462,7 @@ body {
     opacity: 0.6;
   }
 
-  .mini {
+  .apertura__mini {
     display: grid;
     gap: 3px;
     width: 128px;
@@ -461,11 +471,11 @@ body {
     transition: transform var(--transicion);
   }
 
-  .mini:hover {
+  .apertura__mini:hover {
     transform: translateY(-4px);
   }
 
-  .mini__foto {
+  .apertura__mini-foto {
     display: block;
     aspect-ratio: 3 / 4;
     overflow: hidden;
@@ -473,18 +483,18 @@ body {
     background: var(--bone);
   }
 
-  .mini__foto img {
+  .apertura__mini-foto img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
-  .mini__nombre {
+  .apertura__mini-nombre {
     margin-top: 5px;
     font-weight: 600;
   }
 
-  .mini__precio {
+  .apertura__mini-precio {
     color: var(--tan-claro);
   }
 }
@@ -617,7 +627,7 @@ body {
   display: grid;
   overflow: hidden;
   border-radius: 28px;
-  background: var(--ink);
+  background: var(--jungle);
   color: var(--crema);
 }
 
@@ -715,7 +725,7 @@ body {
 .tarjeta__fav {
   top: 10px;
   right: 10px;
-  background: rgba(245, 239, 230, 0.92);
+  background: rgba(248, 241, 236, 0.92);
 }
 
 /* "+" redondo para agregar al carrito */
@@ -736,7 +746,7 @@ body {
   font-size: 0;
   opacity: 1;
   transform: none;
-  box-shadow: 0 6px 18px rgba(21, 17, 13, 0.18);
+  box-shadow: 0 6px 18px rgba(12, 21, 25, 0.18);
   transition: background var(--transicion), color var(--transicion), transform var(--transicion);
 }
 
@@ -832,7 +842,7 @@ em {
 }
 
 .herramientas {
-  background: rgba(245, 239, 230, 0.94);
+  background: rgba(248, 241, 236, 0.94);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border-top: 1px solid var(--linea);
@@ -929,7 +939,7 @@ em {
 .footer p,
 .footer li a,
 .footer__legal {
-  color: rgba(233, 223, 208, 0.72);
+  color: rgba(240, 226, 214, 0.72);
 }
 
 .footer .logo__marca--footer {
@@ -939,7 +949,7 @@ em {
 
 .footer .newsletter {
   border-radius: 999px;
-  border: 1px solid rgba(233, 223, 208, 0.28);
+  border: 1px solid rgba(240, 226, 214, 0.28);
   padding: 0 6px 0 16px;
 }
 
@@ -972,7 +982,7 @@ em {
   text-align: center;
   text-transform: uppercase;
   white-space: nowrap;
-  color: rgba(233, 223, 208, 0.08);
+  color: rgba(240, 226, 214, 0.08);
   user-select: none;
   pointer-events: none;
 }
@@ -987,10 +997,10 @@ em {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   padding: 8px 6px calc(8px + env(safe-area-inset-bottom));
-  background: rgba(21, 17, 13, 0.94);
+  background: rgba(12, 21, 25, 0.94);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
-  border-top: 1px solid rgba(233, 223, 208, 0.12);
+  border-top: 1px solid rgba(240, 226, 214, 0.12);
 }
 
 .tabbar__item {
@@ -1000,7 +1010,7 @@ em {
   align-items: center;
   gap: 3px;
   padding: 4px 0;
-  color: rgba(233, 223, 208, 0.62);
+  color: rgba(240, 226, 214, 0.62);
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -1063,7 +1073,7 @@ em {
 /* ---------- Ficha de producto ---------- */
 .detalle {
   background: var(--kombu);
-  color: rgba(233, 223, 208, 0.78);
+  color: rgba(240, 226, 214, 0.78);
 }
 
 .detalle__titulo {
@@ -1120,7 +1130,7 @@ em {
 }
 
 .barra-compra {
-  background: rgba(245, 239, 230, 0.96);
+  background: rgba(248, 241, 236, 0.96);
   border-top: 1px solid var(--linea);
 }
 
@@ -1135,7 +1145,7 @@ em {
 .resumen__interior {
   border: 1px solid var(--linea);
   background: var(--blanco);
-  box-shadow: 0 18px 40px rgba(21, 17, 13, 0.06);
+  box-shadow: 0 18px 40px rgba(12, 21, 25, 0.06);
 }
 
 .envio-gratis__barra,
@@ -1186,7 +1196,7 @@ em {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(21, 17, 13, 0.05) 25%, rgba(21, 17, 13, 0.9) 85%);
+  background: linear-gradient(180deg, rgba(12, 21, 25, 0.05) 25%, rgba(12, 21, 25, 0.9) 85%);
 }
 
 .acceso__panel > .acceso__panel-texto {

@@ -1,7 +1,7 @@
 /* ==========================================================
    ADMIN — Estructura compartida del panel (usa base.css)
-   Menú lateral, barra, tarjetas, indicadores, tablas,
-   estados, filtros y modal.
+   Cabecera de página, tarjetas, indicadores, tablas,
+   estados, filtros y modal. (La navegación y el color están en admin-tema.css)
    Mobile first · Tablet ≥ 768px · PC ≥ 1100px
    ========================================================== */
 
@@ -11,255 +11,6 @@ body {
 
 .admin {
   min-height: 100vh;
-}
-
-/* ==========================================================
-   MENÚ LATERAL (panel deslizable en celular, fijo en PC)
-   ========================================================== */
-.admin-lateral {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 60;
-  display: flex;
-  flex-direction: column;
-  width: 260px;
-  padding: 24px 16px;
-  background: var(--negro);
-  color: var(--gris-400);
-  transform: translateX(-100%);
-  transition: transform var(--transicion);
-  overflow-y: auto;
-}
-
-.admin-lateral.abierto {
-  transform: translateX(0);
-}
-
-.admin-lateral__marca {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 0 8px 24px;
-  border-bottom: 1px solid var(--gris-900);
-}
-
-.admin-lateral__logo {
-  padding: 6px 10px;
-  border: 1.5px dashed currentColor;
-  font-family: var(--fuente-titulos);
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-}
-
-.admin-lateral .admin-lateral__logo {
-  color: var(--blanco);
-}
-
-.admin-lateral__etiqueta {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-}
-
-.admin-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  margin-top: 20px;
-}
-
-.admin-nav__link {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 11px 10px;
-  font-size: 14px;
-  transition: background var(--transicion), color var(--transicion);
-}
-
-.admin-nav__link span:nth-of-type(1) {
-  flex: 1;
-}
-
-.admin-nav__link:hover {
-  background: var(--grafito);
-  color: var(--blanco);
-}
-
-.admin-nav__link.activo {
-  background: var(--blanco);
-  color: var(--negro);
-  font-weight: 600;
-}
-
-.admin-nav__link--tienda {
-  margin-top: 18px;
-  border-top: 1px solid var(--gris-900);
-  padding-top: 20px;
-}
-
-.admin-nav__badge {
-  min-width: 22px;
-  padding: 1px 7px;
-  border: 1px solid currentColor;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 600;
-  text-align: center;
-  font-variant-numeric: tabular-nums;
-}
-
-.admin-nav__badge--fuerte {
-  border-color: var(--blanco);
-  background: var(--blanco);
-  color: var(--negro);
-}
-
-.admin-nav__link.activo .admin-nav__badge--fuerte {
-  background: var(--negro);
-  border-color: var(--negro);
-  color: var(--blanco);
-}
-
-.admin-usuario {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: auto;
-  padding: 16px 8px 0;
-  border-top: 1px solid var(--gris-900);
-}
-
-.admin-usuario__inicial {
-  display: flex;
-  flex: none;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: var(--blanco);
-  color: var(--negro);
-  font-family: var(--fuente-titulos);
-  font-size: 17px;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.admin-usuario__datos {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  min-width: 0;
-  font-size: 13px;
-}
-
-.admin-usuario__datos strong {
-  color: var(--blanco);
-  font-weight: 600;
-}
-
-.admin-usuario__datos small {
-  overflow: hidden;
-  font-size: 11px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.admin-usuario__salir {
-  display: flex;
-  padding: 8px;
-  color: var(--gris-400);
-}
-
-.admin-usuario__salir:hover {
-  color: var(--blanco);
-}
-
-.admin-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 55;
-  background: rgba(0, 0, 0, 0.45);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity var(--transicion), visibility var(--transicion);
-}
-
-.admin-overlay.visible {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* ==========================================================
-   BARRA SUPERIOR (celular / tablet)
-   ========================================================== */
-.admin-barra {
-  position: sticky;
-  top: 0;
-  z-index: 40;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 58px;
-  padding: 0 var(--gutter);
-  background: var(--blanco);
-  border-bottom: 1px solid var(--gris-200);
-}
-
-.admin-barra .admin-usuario__inicial {
-  width: 30px;
-  height: 30px;
-  background: var(--negro);
-  color: var(--blanco);
-  font-size: 15px;
-}
-
-.admin-barra__acciones {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.admin-barra__menu {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  margin-left: -8px;
-}
-
-.admin-barra__menu span,
-.admin-barra__menu span::before,
-.admin-barra__menu span::after {
-  display: block;
-  width: 20px;
-  height: 1.5px;
-  background: currentColor;
-}
-
-.admin-barra__menu span {
-  position: relative;
-}
-
-.admin-barra__menu span::before,
-.admin-barra__menu span::after {
-  content: "";
-  position: absolute;
-  left: 0;
-}
-
-.admin-barra__menu span::before {
-  top: -6px;
-}
-
-.admin-barra__menu span::after {
-  top: 6px;
 }
 
 /* ==========================================================
@@ -709,31 +460,16 @@ body {
    PC ≥ 1100px
    ========================================================== */
 @media (min-width: 1100px) {
-  .admin-lateral {
-    transform: none;
-    transition: none;
-  }
+  
 
-  .admin-cuerpo {
-    margin-left: 260px;
-  }
+  
 
-  .admin-overlay {
-    display: none;
-  }
+  
 
   /* En PC la barra queda solo con la campanita y el avatar, a la derecha */
-  .admin-barra {
-    justify-content: flex-end;
-    padding: 0 48px;
-    background: var(--gris-100);
-    border-bottom: 0;
-  }
+  
 
-  .admin-barra__menu,
-  .admin-barra > .admin-lateral__logo {
-    display: none;
-  }
+  
 
   .admin-main {
     max-width: 1440px;

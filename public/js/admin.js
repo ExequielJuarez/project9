@@ -1,6 +1,6 @@
 // ==========================================================
 // ADMIN — Interacciones compartidas del panel
-// Menú lateral, aviso (toast), pedidos JSON al servidor y
+// Aviso (toast), pedidos JSON al servidor y
 // modal de confirmación para formularios con data-confirmar.
 // Expone window.Admin para que cada vista lo reutilice.
 // ==========================================================
@@ -8,22 +8,6 @@
 (() => {
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
-
-  // ---------- Menú lateral (celular / tablet) ----------
-  const lateral = $("#adminLateral");
-  const overlay = $("#adminOverlay");
-  const menuBtn = $("#adminMenuBtn");
-
-  function menu(abrir) {
-    lateral.classList.toggle("abierto", abrir);
-    overlay.classList.toggle("visible", abrir);
-    menuBtn.setAttribute("aria-expanded", String(abrir));
-    document.body.classList.toggle("bloqueado", abrir);
-  }
-
-  menuBtn.addEventListener("click", () => menu(!lateral.classList.contains("abierto")));
-  overlay.addEventListener("click", () => menu(false));
-  document.addEventListener("keydown", (e) => e.key === "Escape" && menu(false));
 
   // ---------- Aviso ----------
   const toast = $("#toast");

@@ -88,6 +88,12 @@ async function listar({ q = "", categoria = "", stock = "", orden = "" } = {}) {
   return filas.map(plano);
 }
 
+// Los productos con stock que se muestran en la portada de la tienda
+async function elegidosDeLaSemana(cantidad = 8) {
+  const todos = await listar();
+  return todos.filter((p) => p.stock > 0).slice(0, cantidad);
+}
+
 async function obtener(id) {
   const p = await db.Producto.findByPk(id, {
     include: [...incluir, { association: "especificaciones" }],
@@ -249,6 +255,7 @@ module.exports = {
   MAX_IMAGENES,
   contarImagenes,
   listar,
+  elegidosDeLaSemana,
   obtener,
   porIds,
   relacionados,

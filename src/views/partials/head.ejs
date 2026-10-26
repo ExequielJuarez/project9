@@ -18,5 +18,6 @@
     <link rel="stylesheet" href="/css/<%= hoja %>.css">
   <% }) %>
   <link rel="stylesheet" href="/css/tema.css">
+  <% if (locals.seccion) { %><link rel="stylesheet" href="/css/admin-tema.css"><% } %>
 </head>
-<body>
+<body class="<%= locals.seccion ? 'admin-tema' : '' %>">

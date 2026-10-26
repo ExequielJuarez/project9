@@ -32,10 +32,10 @@
       <div class="apertura__riel" aria-label="Productos destacados">
         <p class="apertura__riel-num">01 <i></i> <%= String(miniaturas.length).padStart(2, '0') %></p>
         <% miniaturas.forEach((p) => { %>
-          <a href="/producto/<%= p.id %>" class="mini">
-            <span class="mini__foto"><% if (p.imagen) { %><img src="<%= p.imagen %>" alt="" loading="lazy"><% } %></span>
-            <span class="mini__nombre"><%= p.nombre %></span>
-            <span class="mini__precio"><%= formatoPrecio(p.precio) %></span>
+          <a href="/producto/<%= p.id %>" class="apertura__mini">
+            <span class="apertura__mini-foto"><% if (p.imagen) { %><img src="<%= p.imagen %>" alt="" loading="lazy"><% } %></span>
+            <span class="apertura__mini-nombre"><%= p.nombre %></span>
+            <span class="apertura__mini-precio"><%= formatoPrecio(p.precio) %></span>
           </a>
         <% }) %>
       </div>

@@ -50,11 +50,13 @@ module.exports = {
   // Arma el inicio con lo que hay en el formulario, sin guardar
   async vistaPrevia(req, res) {
     const { contenido } = inicioService.limpiar(req.body, { previa: true });
+    const elegidos = await productoService.elegidosDeLaSemana();
     res.render("inicio", {
       titulo: "Vista previa",
       estilo: "inicio",
       navActivo: "inicio",
       contenido,
+      elegidos,
       // Se ve como la ve un cliente (sin campanita ni menú de admin)
       usuarioLocal: null,
       flash: null,
