@@ -98,12 +98,15 @@
   }
 
   // ---------- Carrito ----------
-  const contador = $("#contadorCarrito");
+  const contadores = $$("[data-contador-carrito]");
 
   function actualizarContador(cantidad) {
-    contador.textContent = cantidad;
-    contador.classList.add("pulso");
-    setTimeout(() => contador.classList.remove("pulso"), 200);
+    contadores.forEach((contador) => {
+      contador.textContent = cantidad;
+      contador.hidden = cantidad === 0 && contador.hasAttribute("data-ocultar-en-cero");
+      contador.classList.add("pulso");
+      setTimeout(() => contador.classList.remove("pulso"), 200);
+    });
   }
 
   async function agregarAlCarrito({ id, nombre, cantidad = 1, color = null, boton = null }) {

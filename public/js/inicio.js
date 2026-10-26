@@ -3,8 +3,22 @@
 // ==========================================================
 
 (() => {
-  const { $$ } = window.Tienda;
+  const { $, $$ } = window.Tienda;
   const sinMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // ---------- Pastillas de categoría (Elegidos de la semana) ----------
+  const pastillas = $$("#pastillasInicio .pastilla");
+  pastillas.forEach((pastilla) => {
+    pastilla.addEventListener("click", () => {
+      pastillas.forEach((p) => {
+        p.classList.toggle("activa", p === pastilla);
+        p.setAttribute("aria-selected", String(p === pastilla));
+      });
+      $$("#elegidosGrilla .tarjeta").forEach((t) => {
+        t.hidden = Boolean(pastilla.dataset.categoria) && t.dataset.categoria !== pastilla.dataset.categoria;
+      });
+    });
+  });
 
   const revelables = $$("[data-revelar]");
   if (!("IntersectionObserver" in window) || sinMovimiento) return;

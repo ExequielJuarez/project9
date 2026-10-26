@@ -64,7 +64,7 @@
       </a>
       <a href="/carrito" class="icono-btn carrito-btn" aria-label="Carrito">
         <svg viewBox="0 0 24 24" width="20" height="20"><path d="M5 8h14l-1.2 12H6.2L5 8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 016 0v2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
-        <span class="carrito-btn__contador" id="contadorCarrito"><%= locals.cantidadCarrito || 0 %></span>
+        <span class="carrito-btn__contador" id="contadorCarrito" data-contador-carrito><%= locals.cantidadCarrito || 0 %></span>
       </a>
     </div>
   </div>
@@ -86,7 +86,9 @@
       <li class="<%= locals.navActivo === 'catalogo' ? 'nav__item--activo' : '' %>"><a href="/catalogo">Hombre</a></li>
       <li><a href="/catalogo">Novedades</a></li>
       <li><a href="/catalogo">Colección</a></li>
-      <li class="nav__item--movil"><a href="/favoritos">Favoritos<% if ((locals.favoritosIds || []).length) { %> <small>(<%= favoritosIds.length %>)</small><% } %></a></li>
+      <li class="nav__item--movil nav__item--cuenta"><a href="<%= locals.usuarioLocal ? '/mi-cuenta/pedidos' : '/login' %>">Mi cuenta</a></li>
+      <li class="nav__item--movil nav__item--cuenta"><a href="/mi-cuenta/pedidos">Mis pedidos</a></li>
+      <li class="nav__item--movil nav__item--cuenta"><a href="/favoritos">Favoritos<% if ((locals.favoritosIds || []).length) { %> <small>(<%= favoritosIds.length %>)</small><% } %></a></li>
     </ul>
   </nav>
 </header>

@@ -2,22 +2,22 @@
 <section class="beneficios">
   <div class="contenedor beneficios__grilla">
     <div class="beneficio">
-      <span class="beneficio__num">01</span>
+      <svg class="beneficio__icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg>
       <h3>Envíos a todo el país</h3>
       <p>Gratis en compras desde $150.000.</p>
     </div>
     <div class="beneficio">
-      <span class="beneficio__num">02</span>
+      <svg class="beneficio__icono" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 15h3"/></svg>
       <h3>Cuotas sin interés</h3>
       <p>3 y 6 cuotas con todas las tarjetas.</p>
     </div>
     <div class="beneficio">
-      <span class="beneficio__num">03</span>
+      <svg class="beneficio__icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0113.7-5.6L20 8.5M20 4v4.5h-4.5M20 12a8 8 0 01-13.7 5.6L4 15.5M4 20v-4.5h4.5"/></svg>
       <h3>Cambios fáciles</h3>
       <p>Probate en casa y cambiá tu talle sin vueltas.</p>
     </div>
     <div class="beneficio">
-      <span class="beneficio__num">04</span>
+      <svg class="beneficio__icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
       <h3>Compra segura</h3>
       <p>Pagá con tarjeta o transferencia.</p>
     </div>
@@ -54,20 +54,42 @@
       <p>Novedades y descuentos, sin spam.</p>
       <form class="newsletter" onsubmit="return false;">
         <input type="email" placeholder="Tu email" aria-label="Email">
-        <button type="submit">→</button>
+        <button type="submit" aria-label="Suscribirme">→</button>
       </form>
       <div class="footer__redes">
-        <a href="#">(IG)</a>
-        <a href="#">(FB)</a>
-        <a href="#">(TK)</a>
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+        <a href="#">Facebook</a>
       </div>
     </div>
   </div>
   <div class="contenedor footer__legal">
     <span>© <%= new Date().getFullYear() %> Huella Negra. Todos los derechos reservados.</span>
-    <span class="footer__pagos">(VISA) (MASTER) (MP)</span>
+    <span class="footer__pagos">Visa · Mastercard · Mercado Pago</span>
   </div>
+  <p class="footer__gigante" aria-hidden="true">Huella Negra</p>
 </footer>
+
+<!-- Barra inferior (solo celular) -->
+<% const ruta = locals.currentPath || ''; %>
+<nav class="tabbar" aria-label="Navegación rápida">
+  <a href="/" class="tabbar__item <%= ruta === '/' ? 'activo' : '' %>">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z"/></svg><span>Inicio</span>
+  </a>
+  <a href="/catalogo" class="tabbar__item <%= ruta.startsWith('/catalogo') || ruta.startsWith('/producto') ? 'activo' : '' %>">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4l-5 3 2 4 3-1v10h8V10l3 1 2-4-5-3a4 4 0 01-8 0z"/></svg><span>Tienda</span>
+  </a>
+  <a href="/favoritos" class="tabbar__item <%= ruta.startsWith('/favoritos') ? 'activo' : '' %>">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg><span>Favoritos</span>
+  </a>
+  <a href="/carrito" class="tabbar__item <%= ruta.startsWith('/carrito') ? 'activo' : '' %>">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg><span>Carrito</span>
+    <b class="tabbar__contador" data-contador-carrito data-ocultar-en-cero <%= (locals.cantidadCarrito || 0) ? '' : 'hidden' %>><%= locals.cantidadCarrito || 0 %></b>
+  </a>
+  <a href="<%= locals.usuarioLocal ? '/mi-cuenta/pedidos' : '/login' %>" class="tabbar__item <%= ruta.startsWith('/mi-cuenta') || ruta.startsWith('/login') ? 'activo' : '' %>">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span>Cuenta</span>
+  </a>
+</nav>
 
 <!-- Botón flotante de WhatsApp -->
 <a href="#" class="whatsapp" aria-label="WhatsApp">

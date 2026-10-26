@@ -54,7 +54,27 @@ document.addEventListener("DOMContentLoaded", () => {
     vacio.hidden = visibles > 0;
     cantidadVisible.textContent = visibles;
     pintarChips(f);
+    sincronizarPastillas(f);
   }
+
+  // ---------- Pastillas de categoría (atajo a los filtros) ----------
+  const pastillas = $$("#pastillasCatalogo .pastilla");
+
+  function sincronizarPastillas(f) {
+    pastillas.forEach((p) => {
+      const activa = p.dataset.categoria
+        ? f.categorias.length === 1 && f.categorias[0] === p.dataset.categoria
+        : f.categorias.length === 0;
+      p.classList.toggle("activa", activa);
+    });
+  }
+
+  pastillas.forEach((p) =>
+    p.addEventListener("click", () => {
+      $$('input[name="categoria"]').forEach((i) => (i.checked = Boolean(p.dataset.categoria) && i.value === p.dataset.categoria));
+      aplicarFiltros();
+    })
+  );
 
   function pintarChips(f) {
     const chips = [

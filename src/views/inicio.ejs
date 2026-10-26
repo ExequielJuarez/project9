@@ -2,47 +2,83 @@
 <%- include('partials/header') %>
 
 <%
-  // Los textos y fotos de la portada y el banner se editan desde Admin → Inicio
+  // Los textos y fotos de la portada, la cinta y el banner se editan desde Admin → Inicio
   // (ver src/data/inicioEditable.js). textoRico() escapa el texto y convierte *palabra* en cursiva.
   const c = contenido;
   const plano = (t) => String(t || "").replace(/\*/g, "");
+  const categorias = [...new Set(elegidos.map((p) => p.categoria))];
+  const miniaturas = elegidos.slice(0, 3);
 %>
 
 <main class="inicio">
 
   <!-- ═════════════ PORTADA ═════════════ -->
-  <section class="portada-full" data-seccion="portada">
-    <img class="portada-full__foto" src="<%= c.portada.imagen %>" alt="<%= plano(c.portada.titulo).replace(/\n/g, ' ') %>" fetchpriority="high">
-    <div class="portada-full__velo"></div>
-    <div class="portada-full__texto">
-      <% if (c.portada.etiqueta) { %><p class="portada-full__etiqueta"><%- textoRico(c.portada.etiqueta) %></p><% } %>
-      <h1 class="portada-full__titulo">
-        <% c.portada.titulo.split("\n").forEach((renglon) => { %>
-          <span><%- textoRico(renglon) %></span>
-        <% }) %>
+  <section class="apertura" data-seccion="portada">
+    <img class="apertura__foto" src="<%= c.portada.imagen %>" alt="<%= plano(c.portada.titulo).replace(/\n/g, ' ') %>" fetchpriority="high">
+    <div class="apertura__velo"></div>
+
+    <div class="apertura__texto">
+      <% if (c.portada.etiqueta) { %><p class="apertura__etiqueta"><%- textoRico(c.portada.etiqueta) %></p><% } %>
+      <h1 class="apertura__titulo">
+        <% c.portada.titulo.split("\n").forEach((renglon) => { %><span><%- textoRico(renglon) %></span><% }) %>
       </h1>
-      <% if (c.portada.bajada) { %><p class="portada-full__bajada"><%- textoRico(c.portada.bajada) %></p><% } %>
-      <div class="portada-full__acciones">
-        <% if (c.portada.botonTexto) { %>
-          <a href="<%= c.portada.botonLink || '/catalogo' %>" class="btn btn--solido"><%= c.portada.botonTexto %> <span aria-hidden="true">→</span></a>
-        <% } %>
-      </div>
+      <% if (c.portada.bajada) { %><p class="apertura__bajada"><%- textoRico(c.portada.bajada) %></p><% } %>
+      <% if (c.portada.botonTexto) { %>
+        <a href="<%= c.portada.botonLink || '/catalogo' %>" class="btn btn--tan"><%= c.portada.botonTexto %> <span aria-hidden="true">→</span></a>
+      <% } %>
     </div>
+
+    <% if (miniaturas.length) { %>
+      <div class="apertura__riel" aria-label="Productos destacados">
+        <p class="apertura__riel-num">01 <i></i> <%= String(miniaturas.length).padStart(2, '0') %></p>
+        <% miniaturas.forEach((p) => { %>
+          <a href="/producto/<%= p.id %>" class="mini">
+            <span class="mini__foto"><% if (p.imagen) { %><img src="<%= p.imagen %>" alt="" loading="lazy"><% } %></span>
+            <span class="mini__nombre"><%= p.nombre %></span>
+            <span class="mini__precio"><%= formatoPrecio(p.precio) %></span>
+          </a>
+        <% }) %>
+      </div>
+    <% } %>
   </section>
 
   <!-- ═════════════ ELEGIDOS DE LA SEMANA ═════════════ -->
   <% if (elegidos.length) { %>
     <section class="elegidos contenedor" data-seccion="elegidos">
       <div class="elegidos__cabecera">
-        <h2 class="elegidos__titulo" data-revelar>Elegidos de la semana</h2>
+        <div>
+          <p class="sobretitulo" data-revelar>La colección</p>
+          <h2 class="elegidos__titulo" data-revelar>Elegidos de la semana</h2>
+        </div>
         <a href="/catalogo" class="elegidos__ver" data-revelar>Ver todo <span aria-hidden="true">→</span></a>
       </div>
-      <div class="elegidos__grilla">
+
+      <% if (categorias.length > 1) { %>
+        <div class="pastillas" role="tablist" aria-label="Categorías" id="pastillasInicio">
+          <button type="button" class="pastilla activa" data-categoria="" role="tab" aria-selected="true">Todo</button>
+          <% categorias.forEach((cat) => { %>
+            <button type="button" class="pastilla" data-categoria="<%= cat %>" role="tab" aria-selected="false"><%= cat %></button>
+          <% }) %>
+        </div>
+      <% } %>
+
+      <div class="elegidos__grilla" id="elegidosGrilla">
         <% elegidos.forEach((p, i) => { %>
           <%- include('partials/tarjeta', { p, i }) %>
         <% }) %>
       </div>
     </section>
+  <% } %>
+
+  <!-- ═════════════ CINTA ═════════════ -->
+  <% if (c.cinta.visible && c.cinta.palabras) { %>
+    <div class="cinta" aria-hidden="true" data-seccion="cinta">
+      <div class="cinta__pista">
+        <% for (let vuelta = 0; vuelta < 2; vuelta++) { %>
+          <% c.cinta.palabras.split("\n").forEach((frase) => { %><span><%= frase %></span><i>✦</i><% }) %>
+        <% } %>
+      </div>
+    </div>
   <% } %>
 
   <!-- ═════════════ BANNER ═════════════ -->
@@ -57,7 +93,7 @@
           <h2 class="banner__titulo">
             <% c.banner.titulo.split("\n").forEach((renglon) => { %><span><%- textoRico(renglon) %></span><% }) %>
           </h2>
-          <% if (c.banner.botonTexto) { %><span class="btn btn--solido"><%= c.banner.botonTexto %> <span aria-hidden="true">→</span></span><% } %>
+          <% if (c.banner.botonTexto) { %><span class="btn btn--tan"><%= c.banner.botonTexto %> <span aria-hidden="true">→</span></span><% } %>
         </div>
       </a>
     </section>

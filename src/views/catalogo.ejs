@@ -35,6 +35,14 @@
   <!-- ═════════════ CATÁLOGO ═════════════ -->
   <main class="catalogo contenedor">
 
+    <!-- Pastillas de categoría -->
+    <div class="pastillas" role="group" aria-label="Categorías" id="pastillasCatalogo">
+      <button type="button" class="pastilla activa" data-categoria="">Todo</button>
+      <% categorias.forEach((cat) => { %>
+        <button type="button" class="pastilla" data-categoria="<%= cat.nombre %>"><%= cat.nombre %></button>
+      <% }) %>
+    </div>
+
     <!-- Barra de herramientas -->
     <div class="herramientas">
       <button class="btn-filtros" id="btnFiltros" aria-controls="filtros">

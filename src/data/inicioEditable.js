@@ -29,7 +29,7 @@ const SECCIONES = {
     descripcion: "Lo primero que se ve al entrar: título, botones y la foto grande.",
     siempreVisible: true,
     campos: {
-      etiqueta: texto("Texto chico de arriba (opcional)", "", 70),
+      etiqueta: texto("Texto chico de arriba (opcional)", "Colección actual", 70),
       titulo: {
         tipo: "lineas",
         etiqueta: "Título grande",
@@ -45,9 +45,24 @@ const SECCIONES = {
       ),
       botonTexto: texto("Botón principal", "Ver colección", 30, { ancho: "medio" }),
       botonLink: link("Link del botón principal", "/catalogo"),
-      imagen: imagen("Foto principal", IMG("portada.png"), {
-        ayuda: "Foto horizontal. Queda mejor con la persona hacia la derecha y espacio libre a la izquierda para el texto.",
+      imagen: imagen("Foto principal", IMG("portada.jpg"), {
+        ayuda: "Foto vertical (como la del polo). Se muestra a la derecha del título.",
       }),
+    },
+  },
+
+  cinta: {
+    titulo: "Cinta de texto",
+    descripcion: "La franja de letras grandes que se desplaza entre los productos y el banner.",
+    campos: {
+      palabras: {
+        tipo: "lineas",
+        etiqueta: "Frases",
+        defecto: "Huella Negra\nBásicos con carácter\nEnvíos a todo el país\nCambios fáciles",
+        max: 200,
+        maxLineas: 8,
+        ayuda: "Una por renglón.",
+      },
     },
   },
 
